@@ -11,8 +11,10 @@
 	
 		<header>
 			<hgroup>
-				<!--<img src="content/images/attachment.png"> -->
-				<h1>clip it!</h1>
+				<ul>
+					<li><img src="content/images/attachment.png"></li>
+					<li><h1><a href="index.html">clip it!</a></h1></li>
+				</ul>
 			</hgroup>
 
 			<nav>
@@ -29,13 +31,31 @@
 				<nav>
 					<ul>
 						<li><a href="#">Home</a></li>
-						<li><a href="#">Account</a></li>
-						<li><a href="#">Bookmarks</a></li>
+
+						<li id="account">
+							<a href="#">Account</a>
+							<ul>
+								<li><a href="users/joe_user.html">Profile</a></li>
+								<li><a href="users/edit.html">Edit Profile</a></li>
+								<li><a href="users/joe_user/followings.html">Followings</a></li>
+								<li><a href="users/joe_user/followers.html">Followers</a></li>
+							</ul>
+						</li>
+
+						<li id="bookmarks">
+							<a href="#">Bookmarks</a>
+							<ul>
+								<li><a href="bookmarks/new.html">Create</a></li>
+								<li><a href="bookmarks/bookmark_list.html">List</a></li>
+								<li><a href="bookmarks/popular.html">Popular</a></li>
+							</ul>
+						</li>
 					</ul>
 				</nav>
 			</aside>
 
 			<section id="content">
+				
 			</section>
 			
 		</div>
