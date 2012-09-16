@@ -32,7 +32,7 @@
 					<ul>
 						<li><a href="index.html">Home</a></li>
 
-						<li id="account">
+						<li id="account-menu">
 							<a href="#">Account</a>
 							<ul>
 								<li><a href="users/joe_user.html">Profile</a></li>
@@ -42,7 +42,7 @@
 							</ul>
 						</li>
 
-						<li id="bookmarks">
+						<li id="bookmarks-menu">
 							<a href="#">Bookmarks</a>
 							<ul>
 								<li><a href="bookmarks/new.html">Create</a></li>
@@ -55,6 +55,23 @@
 			</aside>
 
 			<section id="content">
+				<div id="login-content">
+
+					<div class="half registering-option">
+						<h3>New User?</h3>
+						<h4><a href="users/new.html">Register</a></h4>
+					</div>
+
+					<div class="half login-form">
+						<h2>Sign In</h2>
+						<form action="users/joe_user.html" method="get">	
+							<input id="username" placeholder="username" required="required">
+							<input id="password" type="password" placeholder="password" required="required">
+							<a href="users/joe_user.html"> <input id="login-btn" type="submit" value="Sign In"></a>
+						</form>
+					</div>
+
+				</div>
 			</section>
 			
 		</div>

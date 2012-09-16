@@ -9,22 +9,22 @@ ul {
 }
 body {
 	background-color: #F5EDD5;
-	width: 100%;
 }
 
+.clear { clear: both;}
+
 #page-wrapper {
-	width: 80%;
 	max-width: 980px;
 	margin: 0 auto;
 }
 
 #page-wrapper header, #page-wrapper footer {
-	width: 80%;
-	max-width: 960px;
+	/*width: 80%;*/
+	width: 980px;
 	background-color: #E89154;/*#D9630F;*/
   position: fixed;
   color: #F5EDD5;
-  padding: 10px;
+  padding: 5px;
 }
 
 #page-wrapper footer {
@@ -72,10 +72,10 @@ nav ul li:last-child {
 }
 
 #main-wrapper {
-	max-width: 960px;
+	/*max-width: 960px;*/
 	padding: 80px 20px 100px 20px;
-	height: 80%;
-	max-height: 500px;
+	/*height: 80%;
+	max-height: 500px;*/
 }
 
 #side-nav {
@@ -83,31 +83,31 @@ nav ul li:last-child {
 	width: 150px
 }
 
-#side-nav ul li {
+#side-nav nav ul li {
 	position: relative;
 	font-size: 20px;
 	text-align: left;
-	padding: 15px;
+	padding: 10px;
 	margin-bottom: 1px;
 	background-color: #E89154;
 }
 
-#side-nav ul li:hover {
+#side-nav nav ul li:hover {
 	text-align: right;
 }
 
-#side-nav ul li:last-child {
+#side-nav nav ul li:last-child {
 	margin-bottom: 0;
 }
 
-#side-nav ul li ul {
+#side-nav nav ul li ul {
 	position: absolute;
 	left: 150px;
 	top: 0;
 	display: none;
 }
 
-#side-nav ul li:hover ul {
+#side-nav nav ul li:hover ul {
 	margin-left: 1px;
 	display: block;
 	width: 150px;
@@ -115,8 +115,83 @@ nav ul li:last-child {
 
 #content {
 	display: inline-block;
-	width: 82%;
-	min-width: 770px;
-	padding: 5px;
-	vertical-align: top;
+	width: 780px;
+	float: right;
 }
+
+
+/* End Home page */
+
+/* Login page */
+
+#login-content {
+	width: 780px;
+}
+
+.half {
+	float: left;
+}
+
+.registering-option {
+	width: 200px;
+	padding: 50px;
+	text-align: center;
+}
+
+.registering-option h3 {
+	padding-bottom: 5px;
+	font-weight: normal;
+}
+
+.registering-option h4 a {
+	color: #A14708;
+	font-weight: bold;
+}
+
+.registering-option h4 a:hover {
+	text-decoration: underline;
+}
+
+.login-form {
+	width: 375px;
+	padding: 20px 50px 50px;
+	border-left: 1px dotted #A14708;
+}
+
+.login-form h2 {
+	margin-bottom: 5px;
+	font-weight: normal;
+	font-size: 1em;
+}
+
+.login-form form { 
+	width: 185px;
+}
+
+.login-form input:focus {
+	outline: none;
+}
+
+.login-form #username, .login-form #password {
+	margin-bottom: 10px;
+	padding: 5px;
+	border: 2px solid #A14708;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+.login-form #login-btn {
+	outline: none;
+	cursor: pointer;
+	border: 0;
+	background: #A14708;
+	color: #F5EDD5;
+	padding: 5px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	font-size: 1em;
+}
+
+/* End Login page */
