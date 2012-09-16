@@ -3,8 +3,8 @@
 	<head>
 		<title>clip it!</title>
 		<meta charset="utf-8">
-		<link rel="stylesheet" type="text/css" href="content/css/reset.css">
-		<link rel="stylesheet" type="text/css" href="content/css/style.css">
+		<link rel="stylesheet" type="text/css" href="./content/css/reset.css">
+		<link rel="stylesheet" type="text/css" href="./content/css/style.css">
 	</head>
 
 	<body id="page-wrapper">
@@ -12,15 +12,15 @@
 		<header>
 			<hgroup>
 				<ul>
-					<li><img src="content/images/attachment.png"></li>
+					<li><img src="./content/images/attachment.png"></li>
 					<li><h1><a href="index.html">clip it!</a></h1></li>
 				</ul>
 			</hgroup>
 
 			<nav>
 				<ul>
-					<li><a href="login.html">Login</a></li>
-					<li><a href="users/new.html">Register</a></li>
+					<li><a href="./login.html">Login</a></li>
+					<li><a href="./users/new.html">Register</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -67,7 +67,9 @@
 						<form action="users/joe_user.html" method="get">	
 							<input id="username" placeholder="username" required="required">
 							<input id="password" type="password" placeholder="password" required="required">
-							<a href="users/joe_user.html"> <input id="login-btn" type="submit" value="Sign In"></a>
+
+							<!-- TODO: remove the <a> tag when we add ruby code -->
+							<a href="users/joe_user.html"> <input id="btn" type="submit" value="Sign In"></a>
 						</form>
 					</div>
 

@@ -158,21 +158,21 @@ nav ul li:last-child {
 	border-left: 1px dotted #A14708;
 }
 
-.login-form h2 {
+.login-form h2, .signup-content h2 {
 	margin-bottom: 5px;
 	font-weight: normal;
 	font-size: 1em;
 }
 
-.login-form form { 
+form { 
 	width: 185px;
 }
 
-.login-form input:focus {
+input:focus {
 	outline: none;
 }
 
-.login-form #username, .login-form #password {
+#username, #password, #first-name, #last-name, #email {
 	margin-bottom: 10px;
 	padding: 5px;
 	border: 2px solid #A14708;
@@ -181,7 +181,7 @@ nav ul li:last-child {
 	-webkit-border-radius: 3px;
 }
 
-.login-form #login-btn {
+#btn {
 	outline: none;
 	cursor: pointer;
 	border: 0;
@@ -195,3 +195,19 @@ nav ul li:last-child {
 }
 
 /* End Login page */
+
+
+/* Sign up page */
+
+/* this page takes a lot of css from login page */
+.signup-content {
+	width: 740px;
+	padding: 20px;
+}
+
+.form-center {
+	width: 200px;
+	margin: 0 auto;
+}
+
+/* End sign up page */
