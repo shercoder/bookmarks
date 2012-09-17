@@ -279,20 +279,23 @@ input:focus {
 }
 
 #bookmark-list > h1 {
+	padding: 5px;
 	text-align: center;
 	font-size: 1.5em;
 	font-weight: normal;
-	margin-bottom: 10px;
+	margin-bottom: 0px;
+	background-color: #E89154;
+	color: #F5EDD5;
 }
 
 .bookmark {
 	width: 730px;
 	padding: 5px;
-	margin-bottom: 5px;
-	border: 1px dotted #A14708;
-	border-radius: 3px;
-	-moz-radius: 3px;
-	-webkit-radius: 3px;
+	border-top: 1px dotted #A14708;
+}
+
+.bookmark:last-child {
+	border-bottom: 1px dotted #A14708;
 }
 
 .bookmark a table {
