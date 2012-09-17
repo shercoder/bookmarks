@@ -236,6 +236,7 @@ input:focus {
 	float: left;
 	text-align: left;
 	font-size: 1.2em;
+	font-weight: normal;
 }
 
 #user-info-container h1 span {
@@ -273,6 +274,53 @@ input:focus {
 }
 
 #bookmark-list {
-	
+	width: 740px;
+	margin: 0 0 20px 30px;
 }
+
+#bookmark-list > h1 {
+	text-align: center;
+	font-size: 1.5em;
+	font-weight: normal;
+	margin-bottom: 10px;
+}
+
+.bookmark {
+	width: 730px;
+	padding: 5px;
+	margin-bottom: 5px;
+	border: 1px dotted #A14708;
+	border-radius: 3px;
+	-moz-radius: 3px;
+	-webkit-radius: 3px;
+}
+
+.bookmark a table {
+	width: 100%;
+}
+
+.bookmark a table tr td {
+	/*border-right: 1px dotted #A14708;*/
+	text-align: center;
+	color: #A14708;
+}
+
+.bookmark:hover {
+	background-color: #A14708;
+}
+
+.bookmark:hover a table tr td {
+	/*border-right: 1px dotted #F5EDD5;*/
+	color: #F5EDD5;
+}
+
+.bookmark a table tr td:first-child {
+	float: left;
+}
+
+.bookmark a table tr td:last-child {
+	float: right;
+}
+
+
 /* end profile page */
