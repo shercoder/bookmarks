@@ -101,17 +101,21 @@ footer {
 	float: left;
 }
 
-#side-nav nav ul li {
+#side-nav ul li {
 	position: relative;
 	font-size: 20px;
 	text-align: left;
 	padding: 5px;
-	margin-bottom: 1px;
 	background-color: #E89154;
+	/*border-top: 1px solid #A14708;*/
+}
+
+#side-nav nav ul li:first-child {
+	border-top: none;
 }
 
 #side-nav nav ul li:hover {
-	text-align: right;
+	background-color: #A14708;
 }
 
 #side-nav nav ul li:last-child {
@@ -377,15 +381,6 @@ input:focus {
 	font-size: 1.2em;
 }
 
-/*#people-container h1 {
-	font-size: 1.2em;
-	text-align: center;
-	color: #F5EDD5;
-	background-color: #A14708;
-	padding: 5px;
-	border-radius: 20px 0 0 0;
-}*/
-
 #people-container ul li h1, 
 #people-container ul li h2,
 #people-container ul li span {
@@ -524,3 +519,20 @@ input:focus {
   color: #FDFFFF;
 }
 /* end bookmark create */
+
+.main-content{
+	width: 400px;
+	margin: 0 auto;
+}
+
+.main-content tr {
+	width: 100px;
+	text-align: center;
+}
+
+.main-content tr td {
+	padding: 20px;
+	font-size: 24px;
+	color: #F5BE98;
+}
+
