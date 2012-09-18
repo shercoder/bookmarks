@@ -19,7 +19,7 @@ body {
 }
 
 #page-wrapper header, #page-wrapper footer {
-	width: 970px;
+  width: 970px;
   position: fixed;
   padding: 5px;
 }
@@ -27,6 +27,7 @@ body {
 #page-wrapper header {
 	background-color: #E89154;/*#D9630F;*/
 	color: #F5EDD5;
+	z-index: 1;
 }
 
 #page-wrapper footer {
@@ -327,3 +328,61 @@ input:focus {
 
 
 /* end profile page */
+
+/* following page */
+
+#people-container {
+	background-color: #E89154;
+	border-radius: 20px 0;
+	box-shadow: 2px 4px 16px -2px;
+}
+
+#people-container ul li {
+	padding: 10px;
+}
+
+#people-container ul li:first-child {
+	text-align: center;
+	background-color: #A14708;
+	border-radius: 20px 0 0 0;
+	padding: 20px;
+}
+
+#people-container ul li:last-child {
+	border-radius: 0 0 20px 0;
+}
+
+#people-container ul li:nth-child(even) {
+	background-color: #F5BE98;
+}
+
+#people-container ul li:first-child h1 {
+	font-size: 1.5em;
+	color: #F5EDD5;
+}
+
+#people-container ul li h1 {
+	font-size: 1.2em;
+}
+
+#people-container ul li h1, 
+#people-container ul li h2,
+#people-container ul li span {
+	margin-bottom: 5px;
+}
+
+#people-container ul li a {
+	float: right;
+	padding: 5px;
+	background-color: #A14708;
+	border-radius: 3px;
+	box-shadow: 1px 2px 7px 2px; 
+}
+
+#people-container ul li a:active {
+	box-shadow: -3px -1px 7px 2px;
+}
+
+
+
+/* end following page */
