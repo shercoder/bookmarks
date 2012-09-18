@@ -5,27 +5,30 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="../content/css/reset.css">
 		<link rel="stylesheet" type="text/css" href="../content/css/style.css">
+		<link rel="icon" type="image/ico" href="../content/images/favicon.ico">
 	</head>
 
-	<body id="page-wrapper">
+	<body>
 	
 		<header>
-			<hgroup>
-				<ul>
-					<li><img src="../content/images/attachment.png"></li>
-					<li><h1><a href="../index.html">clip it!</a></h1></li>
-				</ul>
-			</hgroup>
+			<div class="content-wrapper">
+				<hgroup>
+					<ul>
+						<li><img src="../content/images/attachment.png"></li>
+						<li><h1><a href="../index.html">clip it!</a></h1></li>
+					</ul>
+				</hgroup>
 
-			<nav>
-				<ul>
-					<li><a href="../login.html">Login</a></li>
-					<li><a href="../users/new.html">Register</a></li>
-				</ul>
-			</nav>
+				<nav>
+					<ul>
+						<li><a href="../login.html">Login</a></li>
+						<li><a href="../users/new.html">Register</a></li>
+					</ul>
+				</nav>
+			</div>
 		</header>
 
-		<section id="main-wrapper">
+		<section id="main-wrapper" class="content-wrapper">
 
 			<aside id="side-nav">
 				<nav>
@@ -45,7 +48,7 @@
 							<a href="#">Bookmarks</a>
 							<ul>
 								<li><a href="../bookmarks/new.html">Create</a></li>
-								<li><a href="../bookmarks/bookmark_list.html">List</a></li>
+								<!--<li><a href="../bookmarks/bookmark_list.html">List</a></li>-->
 								<li><a href="../bookmarks/popular.html">Popular</a></li>
 							</ul>
 						</li>
@@ -54,15 +57,35 @@
 			</aside>
 
 			<section id="content">
-				<section id="bookmark-details">
+				<section id="people-container">
+					<h1>How did they find that monkey?</h1>
+					<table id="details">
+						<tr>
+							<td>Video</td>
+							<td>&bigstar;&bigstar;&bigstar;&bigstar;&star;</td>
+							<td><span id="btn"><a href="../bookmarks/edit.html">Edit</a></span></td>
+						</tr>
+						<tr>
+							<td class="column-width" colspan="3"><a href="">Link to the bookmark</a> </td>
+						</tr>
+						<tr>
+							<td><h1>Description</h1></td>
+						</tr>
+						<tr>
+							<td class="column-width" colspan="3">I am shocked. How did they find that monkey? This is just crazy. I am going nuts. Am I going nuts? I mean seriously where did he come from?</td>
+						<tr>
+						<tr>
+							<td colspan="3"><a href="../tags/chico.html">#Africa</a> <a href="../tags/chico.html">#monkey</a> <a href="../tags/chico.html">#animal</a> <a href="../tags/chico.html">#new-species</a></td>
+						<tr>
+					</table>
 				</section>
 			</section>
 			
 		</section>
 
 		<footer>
-			<small>&copy; Copyright Pardeep "SherCoder" Singh 2012</small>
-		</footer>
+			<div class="content-wrapper"><small>&copy; Copyright Pardeep "SherCoder" Singh 2012</small></div>
+		</footer>r>
 	
 	</body>
 </html>

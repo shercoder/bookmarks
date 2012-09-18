@@ -7,36 +7,32 @@ a {
 ul {
 	list-style-type: none;
 }
+
+table {
+	width: 100%;
+}
+
 body {
 	background-color: #F5EDD5;
 }
 
 .clear { clear: both;}
 
-#page-wrapper {
-	width: 980px;
-	margin: 0 auto;
-}
-
-#page-wrapper header, #page-wrapper footer {
-  width: 970px;
-  position: fixed;
-  padding: 5px;
-}
-
-#page-wrapper header {
+header {
+	height: 30px;
+	position: fixed;
 	background-color: #E89154;/*#D9630F;*/
 	color: #F5EDD5;
-	z-index: 1;
+	z-index: 10;
+	top: 0;
+	left: 0;
+	right: 0;
+	vertical-align: middle;
+	padding: 5px;
+	border-bottom: 3px solid #A14708;
 }
 
-#page-wrapper footer {
-	text-align: right;
-	color: #E89154;
-	bottom: 0px;
-}
-
-#page-wrapper header hgroup {
+header hgroup {
 	width: 150px;
 	float: left;
 }
@@ -75,8 +71,28 @@ nav ul li:last-child {
   border-right: none;
 }
 
+footer {
+  position: fixed;
+  padding: 5px;
+	color: #E89154;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background-color: #E89154;
+	color: #F5EDD5;
+	text-align: right;
+	/*border-top: 3px solid #A14708;*/
+}
+
 #main-wrapper {
 	padding: 80px 0 100px 0;
+	min-height: 800px;
+	height: 100%;
+}
+
+.content-wrapper {
+	width: 960px;
+	margin: 0 auto;
 }
 
 #side-nav {
@@ -117,7 +133,7 @@ nav ul li:last-child {
 
 #content {
 	display: inline-block;
-	width: 790px;
+	width: 770px;
 	float: left;
 	margin-left: 38px;
 }
@@ -299,10 +315,6 @@ input:focus {
 	border-bottom: 1px dotted #A14708;
 }
 
-.bookmark a table {
-	width: 100%;
-}
-
 .bookmark a table tr td {
 	/*border-right: 1px dotted #A14708;*/
 	text-align: center;
@@ -365,6 +377,15 @@ input:focus {
 	font-size: 1.2em;
 }
 
+/*#people-container h1 {
+	font-size: 1.2em;
+	text-align: center;
+	color: #F5EDD5;
+	background-color: #A14708;
+	padding: 5px;
+	border-radius: 20px 0 0 0;
+}*/
+
 #people-container ul li h1, 
 #people-container ul li h2,
 #people-container ul li span {
@@ -383,6 +404,123 @@ input:focus {
 	box-shadow: -3px -1px 7px 2px;
 }
 
-
-
 /* end following page */
+
+/* bookmark detail page */
+
+#people-container > h1 {
+	padding: 10px;
+	font-size: 1.2em;
+	text-align: center;
+	color: #F5EDD5;
+	background-color: #A14708;
+	border-top-left-radius: 20px;
+}
+
+#details tr {
+	width: 100%;
+	border-top: 1px dotted #A14708;
+}
+
+#details tr:first-child, 
+#details tr:nth-child(4) {
+	border-top: none;
+}
+
+#details tr:nth-child(4) {
+	margin-left: 10px;
+}
+
+#details tr td {
+	vertical-align: middle;
+	padding: 10px;
+}
+
+#details tr td a:hover {
+	text-decoration: underline;
+}
+
+#details tr:first-child td span#btn {
+	padding-left: 10px;
+	padding-right: 10px;
+	float: right;
+}
+
+.column-width {
+	width: 100%;
+}
+
+/* end bookmark detail page */
+
+/* bookmark create */
+
+#people-container form {
+	width: 300px;
+	margin: 20px auto;
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+#title, #url, #description, #tag-list, #bookmark-type {
+	width: 300px;
+	margin-bottom: 10px;
+	padding: 5px;
+	border: 2px solid #A14708;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+#description, #tag-list {
+	height: 80px;
+}
+
+.checkbox {
+	display: block;
+	margin-bottom: 10px;
+}
+
+
+.rateme {
+
+  float: left;
+  padding-bottom: .5em;
+}
+
+.rateme:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+  clip:rect(0,0,0,0);
+}
+
+.rateme:not(:checked) > label {
+
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 3em;
+  color: #A14708;
+}
+
+.rateme:not(:checked) > label:before {
+  content: '\2605   ';
+}
+
+.rateme > input:checked ~ label {
+  color: #FDFFFF;
+}
+
+.rateme:not(:checked) > label:hover,
+.rateme:not(:checked) > label:hover ~ label {
+  color: #FDFFFF;
+}
+
+.rateme > input:checked + label:hover,
+.rateme > input:checked + label:hover ~ label,
+.rateme > input:checked ~ label:hover,
+.rateme > input:checked ~ label:hover ~ label,
+.rateme > label:hover ~ input:checked ~ label {
+  color: #FDFFFF;
+}
+/* end bookmark create */

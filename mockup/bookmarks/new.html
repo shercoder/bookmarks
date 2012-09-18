@@ -5,7 +5,7 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="../content/css/reset.css">
 		<link rel="stylesheet" type="text/css" href="../content/css/style.css">
-		<link rel="icon" type="image/ico" href="content/images/favicon.ico">
+		<link rel="icon" type="image/ico" href="../content/images/favicon.ico">
 	</head>
 
 	<body>
@@ -57,65 +57,34 @@
 			</aside>
 
 			<section id="content">
-				<div id="profile">
-					<div id="user-info-container">
-						<h1>SherCoder <span>[Pardeep Singh]</span></h1>
-						<a href="../users/edit.html"><h2>Edit Profile</h2></a>
-						<div class="clear"></div>
+				<section id="people-container">
+					<h1>Create New Bookmark</h1>
+					<form action="../users/joe_user.html" method="get">
+						<input id="title" id="input-decorator" type="text" placeholder="title">
+						<input id="url" class="input-decorator" type="url" placeholder="www.example.com/article1">
+						<input id="bookmark-type" class="input-decorator" type="text" placeholder="bookmark type (e.g. Video)">
 
-						<div id="user-image">
-							<img src="../content/images/mypic.jpg" alt="pardeep">
-						</div>
-					</div>
-				</div>
+						<span>
+					        <fieldset class="rateme">
+						        <input type="radio" id="star1" name="rateme" value="5">
+						        <label for="star1">1</label>
+						        <input type="radio" id="star2" name="rateme" value="4">
+						        <label for="star2">2</label>
+						        <input type="radio" id="star3" name="rateme" value="3">
+						        <label for="star3">3</label>
+						        <input type="radio" id="star4" name="rateme" value="2">
+						        <label for="star4">4</label>
+						        <input type="radio" id="star5" name="rateme" value="1">
+						        <label for="star5">5</label>
+					        </fieldset
+						</span>
 
-				<div id="bookmark-list">
-					<h1>Bookmark List</h1>
-					<div class="bookmark">
-						<a href="../bookmarks/show.html">
-							<table>
-								<tr>
-									<td>Article</td>
-									<td>How did they find that monkey?</td>
-									<td>&bigstar;&bigstar;&bigstar;&star;&star;</td>
-								</tr>
-							</table>
-						</a>
-					</div>
-					<div class="bookmark">
-						<a href="../bookmarks/show.html">
-							<table>
-								<tr>
-									<td>Article</td>
-									<td>How did they find that monkey?</td>
-									<td>&bigstar;&bigstar;&bigstar;&star;&star;</td>
-								</tr>
-							</table>
-						</a>
-					</div>
-					<div class="bookmark">
-						<a href="../bookmarks/show.html">
-							<table>
-								<tr>
-									<td>Video</td>
-									<td>Crazy dude going nuts</td>
-									<td>&bigstar;&bigstar;&star;&star;&star;</td>
-								</tr>
-							</table>
-						</a>
-					</div>
-					<div class="bookmark">
-						<a href="../bookmarks/show.html">
-							<table>
-								<tr>
-									<td>Article</td>
-									<td>How did they find that monkey?</td>
-									<td>&bigstar;&bigstar;&bigstar;&star;&star;</td>
-								</tr>
-							</table>
-						</a>
-					</div>
-				</div>
+						<textarea id="description" class="input-decorator" type="text" placeholder="description"></textarea>
+						<textarea id="tag-list" class="input-decorator" type="text" placeholder="list of comma seperated tags"></textarea>
+						<span class="checkbox">Private <input type="checkbox" value="private"></span>
+						<input id="btn" type="submit" value="Create">
+					</form>
+				</section>
 			</section>
 			
 		</section>
