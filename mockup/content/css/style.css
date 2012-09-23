@@ -230,7 +230,8 @@ footer {
 }
 
 .form-wrapper {
-	width: 300px;
+	/*min-width: 350px;*/
+    width: 300px;
 }
 
 .form {
