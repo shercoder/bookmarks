@@ -116,10 +116,6 @@ header hgroup ul li:last-child {
 	font-size: 25px;
 }
 
-/*header hgroup ul li:last-child a:hover {
-	color: #A14708;
-}*/
-
 footer {
   position: fixed;
   padding: 5px;
@@ -130,7 +126,6 @@ footer {
 	background-color: #E89154;
 	color: #F5EDD5;
 	text-align: right;
-	/*border-top: 3px solid #A14708;*/
 }
 
 #main-wrapper {
@@ -150,50 +145,10 @@ footer {
 	box-shadow: 2px 4px 16px -2px;
 }
 
-/*#side-nav {
-	display: inline-block;
-	width: 150px;
-	float: left;
-}
-
-#side-nav ul li {
-	position: relative;
-	font-size: 20px;
-	text-align: left;
-	padding: 5px;
-	background-color: #E89154;
-}
-
-#side-nav nav ul li:first-child {
-	border-top: none;
-}
-
-#side-nav nav ul li:hover {
-	background-color: #A14708;
-}
-
-#side-nav nav ul li:last-child {
-	margin-bottom: 0;
-}
-
-#side-nav nav ul li ul {
-	position: absolute;
-	left: 150px;
-	top: 0;
-	display: none;
-}
-
-#side-nav nav ul li:hover ul {
-	margin-left: 1px;
-	display: block;
-	width: 150px;
-}*/
-
 #content {
-	display: inline-block;
-	width: 770px;
-	float: left;
-	margin-left: 38px;
+	width: 800px;
+	/*float: left;
+	margin-left: 38px;*/
 }
 
 
