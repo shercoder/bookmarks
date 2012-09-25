@@ -347,6 +347,7 @@ input:focus {
 .item tr > td:nth-child(2) {
 	vertical-align: top;
 	line-height: 4;
+	padding-left: 20px;
 }
 
 .item a {
