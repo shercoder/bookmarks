@@ -25,6 +25,8 @@ table {
 
 .center { margin: 0 auto; }
 
+.horizontal-align { text-align: center; }
+
 .heading {
 	padding: 10px;
 	font-size: 1em;
@@ -47,7 +49,6 @@ header {
 }
 
 header hgroup {
-	/*width: 180px;*/
 	float: left;
 }
 
@@ -68,12 +69,7 @@ nav li {
 
 #menu ul > li {
 	display: block;
-	/*border-right: 1px solid #A14708;*/
 }
-
-/*#menu ul > li:first-child {
-	border-left: 1px solid #A14708;
-}*/
 
 #menu ul > li:hover {
 	box-shadow: inset 0 0 12px #A14708;
@@ -129,8 +125,7 @@ footer {
 }
 
 #main-wrapper {
-	padding: 110px 0 100px 0;
-	min-height: 800px;
+	padding: 100px 0 70px 0;
 	height: 100%;
 }
 
@@ -147,22 +142,11 @@ footer {
 
 #content {
 	width: 800px;
-	/*float: left;
-	margin-left: 38px;*/
 }
-
 
 /* End Home page */
 
 /* Login page */
-
-/*#login-content {
-	width: 780px;
-}*/
-
-/*.half {
-	float: left;
-}*/
 
 .registering-option {
 	width: 200px;
@@ -190,7 +174,7 @@ footer {
 }
 
 .form {
-	padding: 20px 50px;
+	padding: 20px 26px;
 	text-align: center;
 }
 
@@ -199,10 +183,6 @@ footer {
 	font-weight: normal;
 	font-size: 1em;
 }
-
-/*form { 
-	width: 185px;
-}*/
 
 input:focus {
 	outline: none;
@@ -303,7 +283,7 @@ input:focus {
 #user-info {
 	float: left;
 	margin-left: 20px;
-	marging-top: 5px;
+	margin-top: 5px;
 	padding: 5px;
 }
 
@@ -333,7 +313,6 @@ input:focus {
 }
 
 .bookmark a table tr td {
-	/*border-right: 1px dotted #A14708;*/
 	text-align: center;
 	color: #A14708;
 }
@@ -343,7 +322,6 @@ input:focus {
 }
 
 .bookmark:hover a table tr td {
-	/*border-right: 1px dotted #F5EDD5;*/
 	color: #F5EDD5;
 }
 
@@ -490,7 +468,6 @@ input:focus {
 
 
 .rateme {
-
   float: left;
   padding-bottom: .5em;
 }
@@ -533,7 +510,7 @@ input:focus {
 }
 /* end bookmark create */
 
-.main-content{
+.main-content {
 	width: 400px;
 	margin: 0 auto;
 }
@@ -547,5 +524,20 @@ input:focus {
 	padding: 20px;
 	font-size: 24px;
 	color: #F5BE98;
+}
+
+/* people menu */
+.follow-menu { 
+	display: inline-block;
+	margin-bottom: 10px;
+	padding: 10px;
+	background-color: #A14708;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.follow-menu > a > h3 {
+	font-weight: bolder;
 }
 
