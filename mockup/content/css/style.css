@@ -344,11 +344,6 @@ input:focus {
 	padding-top: 5px;
 }
 
-.item tr > td > img {
-	width: 100px;
-	height: 70px;
-}
-
 .item tr > td:nth-child(2) {
 	vertical-align: top;
 	line-height: 4;
