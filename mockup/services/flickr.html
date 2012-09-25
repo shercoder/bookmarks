@@ -1,5 +1,8 @@
 #!/usr/bin/env ruby
 
+require "open-uri"
+require "json"
+
 puts "Content-type: text/html\n\n"
 
 puts "<!DOCTYPE html>"
@@ -42,15 +45,26 @@ puts "			</nav>"
 puts "		</div>"
 puts "	</header>"
 
+file = open("http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=e004f26838bdc5db3d25252e7dbe8d44&format=json&nojsoncallback=1")
+
+photos = JSON::load(file)
+
+
 puts "	<section id=\"main-wrapper\" class=\"content-wrapper\">"
 puts "		<section id=\"content\" class=\"center\">"
 puts "			<article id=\"bookmark-list\">"
 puts "				<h1>Service Name: Flickr</h1>"
 puts "				<table class=\"item\">"
-puts "					<tr>"
-puts "						<td><img src=\"../content/images/mypic.jpg\"></td>"
-puts "						<td><a>How did they find that monkey?</a></td>"
-puts "					</tr>"
+
+photos["photos"]["photo"].each do |photo|
+
+	puts "					<tr>"
+	puts "						<td><img src=\"http://farm#{photo["farm"]}.staticflickr.com/#{photo["server"]}/#{photo["id"]}_#{photo["secret"]}_t.jpg\"></td>"
+	puts "						<td><a>How did they find that monkey?</a></td>"
+	puts "					</tr>"
+
+end
+
 puts "				</table>"
 puts "			</article>"
 puts "		</section>"		
