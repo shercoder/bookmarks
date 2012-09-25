@@ -333,6 +333,37 @@ input:focus {
 	float: right;
 }
 
+/* service page */
+.item {}
+
+.item tr {
+	border-bottom: 1px dotted #A14708;
+}
+
+.item tr > td {
+	padding-top: 5px;
+}
+
+.item tr > td > img {
+	width: 100px;
+	height: 70px;
+}
+
+.item tr > td:nth-child(2) {
+	vertical-align: top;
+	line-height: 4;
+}
+
+.item a {
+	color: #A14708;
+}
+
+.item a:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+/* end service page */
+
 
 /* end profile page */
 
