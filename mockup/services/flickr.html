@@ -61,11 +61,8 @@ photos["photos"]["photo"].each do |photo|
 
 	puts "					<tr>"
 	puts "						<td><img src=\"http://farm#{photo["farm"]}.staticflickr.com/#{photo["server"]}/#{photo["id"]}_#{photo["secret"]}_t.jpg\"></td>"
-	puts "						<td><a href=\"http://www.flickr.com/photos/#{photo["owner"]}/#{photo["id"]}\">if photo["title"] == null 
-		#{photo["title"]}
-	else
-		No Title
-	end</a></td>"
+	puts "						<td><a href=\"http://www.flickr.com/photos/#{photo["owner"]}/#{photo["id"]}\">#{photo["title"] or "No Title"} 
+	</a></td>"
 	puts "					</tr>"
 
 end
