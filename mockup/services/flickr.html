@@ -45,7 +45,7 @@ puts "			</nav>"
 puts "		</div>"
 puts "	</header>"
 
-file = open("http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=e004f26838bdc5db3d25252e7dbe8d44&format=json&nojsoncallback=1")
+file = open("http://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=e004f26838bdc5db3d25252e7dbe8d44&format=json&nojsoncallback=1&per_page=20")
 
 photos = JSON::load(file)
 
