@@ -1,0 +1,50 @@
+<%= form_for :bookmark, form_options do |f| %> 
+	<%= f.text_field  :name, :id => "title", :class => "input-fields", :required => true, :placeholder => "title" %>
+
+	<%= f.url_field  :name, :id => "url", :class => "input-fields", :required => true, :placeholder => "www.example.com/article1" %>
+
+	<%= f.text_field  :name, :id => "bookmark-type", :class => "input-fields", :required => true, :placeholder => "bookmark type (e.g. Video or Article)" %>
+
+	<span>
+        <fieldset class="rateme">
+	        <input type="radio" id="star1" name="rateme" value="5">
+	        <label for="star1">1</label>
+	        <input type="radio" id="star2" name="rateme" value="4">
+	        <label for="star2">2</label>
+	        <input type="radio" id="star3" name="rateme" value="3">
+	        <label for="star3">3</label>
+	        <input type="radio" id="star4" name="rateme" value="2">
+	        <label for="star4">4</label>
+	        <input type="radio" id="star5" name="rateme" value="1">
+	        <label for="star5">5</label>
+        </fieldset>
+	</span>
+
+	<%= f.text_area :name, :id => "description", :class => "input-fields", :required => true, :placeholder => "description" %>
+
+	<%= f.text_area :name, :id => "tag-list", :class => "input-fields", :required => true, :placeholder => "list of comma seperated tags" %>
+
+	<span class="checkbox">Private <%= f.check_box :value => "private" %></span>
+
+	<%= submit_tag "Save", :id => "btn" %>
+
+	
+<% end %>
+
+<!--
+
+	<span>
+        <fieldset class="rateme">
+	        <input type="radio" id="star1" name="rateme" value="5">
+	        <label for="star1">1</label>
+	        <input type="radio" id="star2" name="rateme" value="4">
+	        <label for="star2">2</label>
+	        <input type="radio" id="star3" name="rateme" value="3">
+	        <label for="star3">3</label>
+	        <input type="radio" id="star4" name="rateme" value="2">
+	        <label for="star4">4</label>
+	        <input type="radio" id="star5" name="rateme" value="1">
+	        <label for="star5">5</label>
+        </fieldset>
+	</span>
+-->

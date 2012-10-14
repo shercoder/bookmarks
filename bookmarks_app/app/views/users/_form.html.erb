@@ -1,0 +1,20 @@
+<section class="form">
+	<%= form_for :user, form_options do |f| %> 
+	    <%= f.text_field  :name, :id => "first-name", :class => "input-fields", :required => true, :placeholder => "first name" %>
+	 
+	    <%= f.text_field  :name, :id => "last-name", :class => "input-fields", :required => true, :placeholder => "last name"%>
+
+	    <%= f.text_field  :name, :id => "email", :class => "input-fields", :required => true, :type => "email", :placeholder => "email@email.com"%>
+
+	    <%= f.text_field  :name, :id => "username", :class => "input-fields", :required => true, :placeholder => "username" %>
+
+	    <%= f.text_field  :name, :id => "password", :class => "input-fields", :required => true, :type => "password", :placeholder => "password" %>
+
+	    <%= f.text_field  :name, :id => "confirm-password", :class => "input-fields", :required => true, :type => "password", :placeholder => "confirm password"  %>
+
+	  <%= submit_tag "Register", :id => "btn" %>
+	<% end %>
+</section>
+
+
+ 

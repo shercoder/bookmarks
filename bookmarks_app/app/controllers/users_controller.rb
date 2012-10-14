@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 
 	# POST => /users/
 	def create
+		redirect_to userss_url, :notice => "Created successfully!"
 	end
 
 	# GET => /users/:id/edit
@@ -22,6 +23,9 @@ class UsersController < ApplicationController
 
 	# PUT => /users/:id
 	def update
+		flash[:notice] = "Successfully Updated!"
+    
+    	redirect_to user_url(params[:id])
 	end
 
 	# DELETE => /users/:id

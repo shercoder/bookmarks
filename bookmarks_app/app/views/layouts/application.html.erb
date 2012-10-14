@@ -1,14 +1,56 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BookmarksApp</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <title>clip it!</title>
+  <%= stylesheet_link_tag	"application", :media => "all" %>
+  <%= stylesheet_link_tag	"reset.css" %>
+  <%= stylesheet_link_tag	"style.css" %>
+  <%= stylesheet_link_tag	"http://fonts.googleapis.com/css?family=Tangerine" %>
+  <%= favicon_link_tag		"favicon.ico", :rel => "icon", :type => "image/ico"%>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+	<header>
+		<div class="content-wrapper">
+			<hgroup>
+				<ul>
+					<li><%=image_tag"attachment.png"%></li>
+					<li><h1 id="logo"><a href="../index.html">clip it!</a></h1></li>
+				</ul>
+			</hgroup>
+
+			<nav id="menu">
+				<ul>
+					<li><a href="../users/joe_user.html">Profile</a></li>
+					<li ><a href="../tags/chico.html">Tags</a></li>
+					<li ><a href="../bookmarks/popular.html">Popular</a></li>
+					<li ><a href="../bookmarks/new.html">New</a></li>
+					<li ><a href="../users/joe_user/followings.html">People</a></li>
+				</ul>
+			</nav>
+
+			<nav id="right">
+				<ul>
+					<li><a href="../index.html">Logoff</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<section id="main-wrapper" class="content-wrapper">
+		<% if flash[:notice] %>
+		  <p style="color:green;">
+		    <%= flash[:notice] %>
+		  </p>
+		<% end %>
+		<%= yield %>
+	</section>
+
+	<footer>
+		<div class="content-wrapper"><small>&copy; Copyright Pardeep "SherCoder" Singh 2012</small></div>
+	</footer>
 
 </body>
 </html>

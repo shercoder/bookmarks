@@ -14,6 +14,7 @@ class BookmarksController < ApplicationController
 
 	# POST => /bookmarks/
 	def create
+		redirect_to bookmarks_url, :notice => "Bookmark created successfully!"
 	end
 
 	# GET => /bookmarks/:id/edit
@@ -22,6 +23,9 @@ class BookmarksController < ApplicationController
 
 	# PUT => /bookmarks/:id
 	def update
+		flash[:notice] = "Successfully Updated!"
+    
+    	redirect_to bookmark_url(params[:id])
 	end
 
 	# DELETE => /bookmarks/:id

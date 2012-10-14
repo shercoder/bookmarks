@@ -174,7 +174,9 @@ footer {
 }
 
 .form {
-	padding: 20px 26px;
+	/*padding: 20px 26px;*/
+	padding-top: .8em;
+	padding-bottom: .8em;
 	text-align: center;
 }
 
@@ -188,7 +190,7 @@ input:focus {
 	outline: none;
 }
 
-#username, #password, #first-name, #last-name, #email {
+.input-fields {
 	margin-bottom: 10px;
 	padding: 5px;
 	border: 2px solid #A14708;
@@ -308,29 +310,36 @@ input:focus {
 	border-top: 1px dotted #A14708;
 }
 
+.bookmark > a {
+	color: #A14708;
+}
+
+.bookmark > a:hover {
+	color: #F5EDD5;
+}
+
+.bookmark > a > ul {
+	text-align: center;
+}
+
+.bookmark > a > ul > li {
+	display: inline-block;
+}
+
+.bookmark > a > ul > li:first-child {
+	float: left;
+}
+
+.bookmark > a > ul > li:last-child {
+	float: right;
+}
+
 .bookmark:last-child {
 	border-bottom: 1px dotted #A14708;
 }
 
-.bookmark a table tr td {
-	text-align: center;
-	color: #A14708;
-}
-
 .bookmark:hover {
 	background-color: #A14708;
-}
-
-.bookmark:hover a table tr td {
-	color: #F5EDD5;
-}
-
-.bookmark a table tr td:first-child {
-	float: left;
-}
-
-.bookmark a table tr td:last-child {
-	float: right;
 }
 
 /* service page */
