@@ -8,9 +8,9 @@
 
 	    <%= f.text_field  :name, :id => "username", :class => "input-fields", :required => true, :placeholder => "username" %>
 
-	    <%= f.text_field  :name, :id => "password", :class => "input-fields", :required => true, :type => "password", :placeholder => "password" %>
+	    <%= f.password_field  :name, :id => "password", :class => "input-fields", :required => true, :placeholder => "password" %>
 
-	    <%= f.text_field  :name, :id => "confirm-password", :class => "input-fields", :required => true, :type => "password", :placeholder => "confirm password"  %>
+	    <%= f.password_field  :name, :id => "confirm-password", :class => "input-fields", :required => true, :placeholder => "confirm password"  %>
 
 	  <%= submit_tag "Submit", :id => "btn" %>
 	<% end %>

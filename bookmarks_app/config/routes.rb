@@ -1,9 +1,10 @@
 BookmarksApp::Application.routes.draw do
 
-  match "signup" => "users#new"
-  resources :users, :bookmarks
+  root :to => 'bookmarks#index'
+  match 'signup' => 'users#new'
+  resources :users
+  resources :bookmarks
 
-  root :to => "bookmarks#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
