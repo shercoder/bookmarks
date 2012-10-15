@@ -1,7 +1,4 @@
 <section class="form-wrapper container center">
 	<h2 class="heading">Registeration Form</h2>
-	<%= render :partial => "form",
-           :locals  => {:form_options => {:url    => new_user_path,
-                                          :method => :get}} %>
-	
+	<%= render :partial => "form", :locals  => {:form_options => {:url => users_path}} %>	
 </section >

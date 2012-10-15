@@ -41,10 +41,11 @@
 
 	<section id="main-wrapper" class="content-wrapper">
 		<% if flash[:notice] %>
-		  <p style="color:green;">
+		  <p style="color:#A14708;">
 		    <%= flash[:notice] %>
 		  </p>
 		<% end %>
+
 		<%= yield %>
 	</section>
 

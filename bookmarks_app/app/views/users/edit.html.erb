@@ -1,0 +1,5 @@
+<section class="form-wrapper container center">
+	<h2 class="heading">Update Info</h2>
+	<%= render :partial => "form", :locals  => {:form_options => {:url	  => user_path(params[:id]),
+																  :method => :put}} %>	
+</section >

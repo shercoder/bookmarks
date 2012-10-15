@@ -2,46 +2,25 @@
 
 	<article id="bookmark-list">
 		<h1>Popular Bookmark List</h1>
-		
-		<div class="bookmark">
-			<a href="../bookmarks/show.html">
-				<ul>	
-					<li>Article</li>
-					<li>How did they find that monkey?</li>
-					<li>&bigstar;&bigstar;&bigstar;&star;&star;</li>
-				</ul>
-			</a>
-		</div>
 
-		<div class="bookmark">
-			<a href="../bookmarks/show.html">
-				<ul>	
-					<li>Article</li>
-					<li>How did they find that monkey?</li>
-					<li>&bigstar;&bigstar;&bigstar;&star;&star;</li>
-				</ul>
-			</a>
-		</div>
-
-		<div class="bookmark">
-			<a href="../bookmarks/show.html">
-				<ul>	
-					<li>Article</li>
-					<li>How did they find that monkey?</li>
-					<li>&bigstar;&bigstar;&bigstar;&star;&star;</li>
-				</ul>
-			</a>
-		</div>
-
-		<div class="bookmark">
-			<a href="../bookmarks/show.html">
-				<ul>	
-					<li>Article</li>
-					<li>How did they find that monkey?</li>
-					<li>&bigstar;&bigstar;&bigstar;&star;&star;</li>
-				</ul>
-			</a>
-		</div>
+		<% @bookmarks.each_with_index do |bookmark, index| %>
+			<div class="bookmark">
+				<%= link_to bookmark_path(index) do %>
+					<ul>	
+						<li><%= bookmark[:type] %></li>
+						<li><%= bookmark[:title] %></li>
+						<li>
+							<% bookmark[:rating].to_i.times do %>
+								&bigstar;
+							<% end %>
+							<% (5-(bookmark[:rating].to_i)).times do %>
+								&star;
+							<% end %>
+						</li>
+					</ul>
+				<% end %>
+			</div>
+		<% end %>
 		
 	</article>
 </section>

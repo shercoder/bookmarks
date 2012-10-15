@@ -1,7 +1,39 @@
 <section id="people-container">
-	<h1>How did they find that monkey?</h1>
+	<h1><%= @bookmark[:title] %></h1>
 	<table id="details">
 		<tr>
+			<td><%= @bookmark[:type] %></td>
+			<td>
+				<% @bookmark[:rating].to_i.times do %>
+					&bigstar;
+				<% end %>
+				<% (5-(@bookmark[:rating].to_i)).times do %>
+					&star;
+				<% end %>
+			</td>
+			<td><span id="btn"><%= link_to "Edit", edit_bookmark_path(params[:id]) %></span></td>
+		</tr>
+		<tr>
+			<td class="column-width" colspan="3"><%= link_to "Link to the bookmark", @bookmark[:source]%> </td>
+		</tr>
+		<tr>
+			<td><h1>Description</h1></td>
+		</tr>
+		<tr>
+			<td class="column-width" colspan="3"><%= @bookmark[:description] %></td>
+		<tr>
+		<tr>
+			<td colspan="3">
+				<% @bookmark[:tags].each do |tag| %>
+					<%= link_to tag, "#"  %>
+				<% end %>
+			</td>
+		<tr>
+	</table>
+</section>
+
+<!--
+	<tr>
 			<td>Video</td>
 			<td>&bigstar;&bigstar;&bigstar;&bigstar;&star;</td>
 			<td><span id="btn"><%= link_to "Edit", edit_bookmark_path(:id) %></span></td>
@@ -18,5 +50,4 @@
 		<tr>
 			<td colspan="3"><a href="../tags/chico.html">#Africa</a> <a href="../tags/chico.html">#monkey</a> <a href="../tags/chico.html">#animal</a> <a href="../tags/chico.html">#new-species</a></td>
 		<tr>
-	</table>
-</section>
+	-->

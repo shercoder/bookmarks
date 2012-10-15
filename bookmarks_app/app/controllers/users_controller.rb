@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
 	# POST => /users/
 	def create
-		redirect_to userss_url, :notice => "Created successfully!"
+		redirect_to users_url, :notice => "Created successfully!"
 	end
 
 	# GET => /users/:id/edit
@@ -30,6 +30,7 @@ class UsersController < ApplicationController
 
 	# DELETE => /users/:id
 	def destroy
+		redirect_to users_url, :notice => "Deleted successfully!"
 	end
 
 end

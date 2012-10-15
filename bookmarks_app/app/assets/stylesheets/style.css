@@ -260,7 +260,7 @@ input:focus {
 	color: gray;
 }
 
-#user-info-container h2 {
+#user-info-container > a {
 	float: right;
 	padding: 5px;
 	background-color: #E89154;
@@ -268,7 +268,7 @@ input:focus {
 	cursor: pointer;
 }
 
-#user-info-container h2:hover {
+#user-info-container a:hover {
 	background-color: #A14708;
 }
 
