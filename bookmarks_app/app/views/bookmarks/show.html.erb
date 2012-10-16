@@ -11,7 +11,14 @@
 					&star;
 				<% end %>
 			</td>
-			<td><span id="btn"><%= link_to "Edit", edit_bookmark_path(params[:id]) %></span></td>
+			<td>
+				<span id="btn">
+					<%= link_to "Delete", bookmark_path(params[:id]), :method => :delete %>
+				</span>
+				<span id="btn">
+					<%= link_to "Edit", edit_bookmark_path(params[:id]) %>
+				</span>
+			</td>
 		</tr>
 		<tr>
 			<td class="column-width" colspan="3"><%= link_to "Link to the bookmark", @bookmark[:source]%> </td>

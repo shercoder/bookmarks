@@ -262,6 +262,7 @@ input:focus {
 
 #user-info-container > a {
 	float: right;
+	margin-right: 5px;
 	padding: 5px;
 	background-color: #E89154;
 	border-radius: 3px;
@@ -466,6 +467,10 @@ input:focus {
 	padding-left: 10px;
 	padding-right: 10px;
 	float: right;
+}
+
+span#btn {
+	margin-right: 5px;
 }
 
 .column-width {
