@@ -4,7 +4,8 @@
 			<div id="user-info-container">
 				<h1><%= user[:username] %>
 				<span>[ <%= user[:first_name] %> <%= user[:last_name] %>]</span></h1>
-				<%= link_to "Delete", user_path(index), :method => :delete %>
+				<%= link_to "Delete", user_path(index), :method => :delete,
+														:confirm => "Delete?" %>
 				<%= link_to "Profile", user_path(index) %>
 				<div class="clear"></div>
 				<div id="user-image">

@@ -13,7 +13,7 @@
 			</td>
 			<td>
 				<span id="btn">
-					<%= link_to "Delete", bookmark_path(params[:id]), :method => :delete %>
+					<%= link_to "Delete", bookmark_path(params[:id]), :method => :delete, :confirm => "Are ju shure ju wantt to deleeete?"%>
 				</span>
 				<span id="btn">
 					<%= link_to "Edit", edit_bookmark_path(params[:id]) %>
