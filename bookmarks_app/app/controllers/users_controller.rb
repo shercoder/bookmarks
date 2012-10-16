@@ -8,9 +8,6 @@ class UsersController < ApplicationController
 	# GET => /users/:id
 	def show
 		@user = user_list[params[:id].to_i]
-		if @users == nil
-			redirect_to "404.html"
-		end
 	end
 
 	# GET => /users/new
@@ -26,9 +23,6 @@ class UsersController < ApplicationController
 	# GET => /users/:id/edit
 	def edit
 		@user = user_list[(params[:id]).to_i]
-		if @user == nil
-			render :status => 404
-		end
 	end
 
 	# PUT => /users/:id
