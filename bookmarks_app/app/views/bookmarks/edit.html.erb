@@ -1,7 +1,6 @@
 <section id="people-container">
-	<h1>Edit Bookmark</h1>
+	<h1>Edit Bookmark </h1>
 	<%= render :partial => "form",
            	   :locals  => {:form_options => {:url    => bookmark_path(params[:id]),
                                           	  :method => :put}} %>
-
 </section>

@@ -1,13 +1,12 @@
 <section id="content" class="center">
 	<article id="profile">
 		<div id="user-info-container">
-			<h1>SherCoder <span>[Pardeep Singh]</span></h1>
-			<%= link_to "Edit Profile", edit_user_path(:id) %>
-			
+			<h1><%= @user[:username] %>
+			<span>[ <%= @user[:first_name] %> <%= @user[:last_name] %>]</span></h1>
+			<%= link_to "Edit Profile", edit_user_path(params[:id]) %>
 			<div class="clear"></div>
-
 			<div id="user-image">
-				<%= image_tag "mypic.jpg" %>
+				<%= image_tag @user[:user_image] %>
 			</div>
 		</div>
 	</article>

@@ -525,7 +525,7 @@ input:focus {
 }
 
 .rateme:not(:checked) > label:before {
-  content: '\2605   ';
+  /*content: '\2605   ';*/
 }
 
 .rateme > input:checked ~ label {

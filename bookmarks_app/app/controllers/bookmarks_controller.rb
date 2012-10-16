@@ -12,6 +12,7 @@ class BookmarksController < ApplicationController
 
 	# GET => /bookmarks/new
 	def new
+		@bookmark = { :rating => 1, :tags => []}
 	end
 
 	# POST => /bookmarks/
@@ -21,6 +22,7 @@ class BookmarksController < ApplicationController
 
 	# GET => /bookmarks/:id/edit
 	def edit
+		@bookmark = bookmark_list[(params[:id]).to_i]
 	end
 
 	# PUT => /bookmarks/:id
@@ -37,21 +39,24 @@ class BookmarksController < ApplicationController
 
 	private
 	def bookmark_list
-		[{:type => "Article", :title => "How did they find that monkey?", :rating => "3", 
+		[{:type => "Article", :title => "How did they find that monkey?", :rating => 3, 
 			:source => "http://www.sciencemag.org", 
 			:description => "I am shocked. How did they find that monkey? 
 							This is just crazy. I am going nuts. Am I going nuts? 
 							I mean seriously where did he come from?",
-			:tags => ["monkey", "africa", "new-species", "animal"]},
-		 {:type => "Video", :title => "Wow account deleted!", :rating => "4",
+			:tags => ["monkey", "africa", "new-species", "animal"],
+			:isPrivate => true},
+		 {:type => "Video", :title => "Wow account deleted!", :rating => 4,
 		 	:source => "http://www.youtube.com", 
 			:description => "That kid is going crazy because his mother deleted his WOW account!",
-			:tags => ["crazy", "WOW", "video", "youtube"]},
-		 {:type => "Article", :title => "Joe Biden vs Paul Ryan? Seriously?", :rating => "5",
+			:tags => ["crazy", "WOW", "video", "youtube"],
+			:isPrivate => false},
+		 {:type => "Article", :title => "Joe Biden vs Paul Ryan? Seriously?", :rating => 5,
 		 	:source => "http://www.washingtonpost.com", 
 			:description => "They're both dumb, they weren't even answering the questions.
 							 The moderator was tired of their shit!",
-			:tags => ["biden", "ryan", "election-2012", "democrats", "republicans"]}]
+			:tags => ["biden", "ryan", "election-2012", "democrats", "republicans"],
+			:isPrivate => true}]
 	end
 
 end

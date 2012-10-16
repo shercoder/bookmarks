@@ -1,50 +1,35 @@
-<%= form_for :bookmark, form_options do |f| %> 
-	<%= f.text_field  :name, :id => "title", :class => "input-fields", :required => true, :placeholder => "title" %>
+<%= form_for :bookmarks, form_options do |f| %> 
+	<%= f.text_field  :title, :class => "input-fields", :required => true, :placeholder => "title", :size => "40", :value => @bookmark[:title] %>
 
-	<%= f.url_field  :name, :id => "url", :class => "input-fields", :required => true, :placeholder => "www.example.com/article1" %>
+	<%= f.url_field  :address, :class => "input-fields", :required => true, :placeholder => "www.example.com/article1", :size => "40", :value => @bookmark[:source] %>
 
-	<%= f.text_field  :name, :id => "bookmark-type", :class => "input-fields", :required => true, :placeholder => "bookmark type (e.g. Video or Article)" %>
+	<%= f.text_field  :type, :class => "input-fields", :required => true, :placeholder => "bookmark type (e.g. Video or Article)", :size => "40", :value => @bookmark[:type]%>
 
 	<span>
-        <fieldset class="rateme">
-	        <input type="radio" id="star1" name="rateme" value="5">
-	        <label for="star1">1</label>
-	        <input type="radio" id="star2" name="rateme" value="4">
-	        <label for="star2">2</label>
-	        <input type="radio" id="star3" name="rateme" value="3">
-	        <label for="star3">3</label>
-	        <input type="radio" id="star4" name="rateme" value="2">
-	        <label for="star4">4</label>
-	        <input type="radio" id="star5" name="rateme" value="1">
-	        <label for="star5">5</label>
-        </fieldset>
+        <%= field_set_tag nil, :class => "rateme" do %>
+        	<%= f.radio_button "rateme", "5", :name => "rateme", 
+        									  :checked => (@bookmark[:rating] == 5)%>
+	        <%= f.label "rateme_5", "5" %>
+	        <%= f.radio_button "rateme", "4", :name => "rateme", 
+        									  :checked => (@bookmark[:rating] == 4) %>
+	        <%= f.label "rateme_4", "4" %>
+	        <%= f.radio_button "rateme", "3", :name => "rateme", 
+        									  :checked => (@bookmark[:rating] == 3) %>
+	        <%= f.label "rateme_3", "3" %>
+	        <%= f.radio_button "rateme", "2", :name => "rateme", 
+        									  :checked => (@bookmark[:rating] == 2) %>
+	        <%= f.label "rateme_2", "2" %>
+	        <%= f.radio_button "rateme", "1", :name => "rateme", 
+        									  :checked => (@bookmark[:rating] == 1)%>
+	        <%= f.label "rateme_1", "1" %>   
+        <% end %>
 	</span>
 
-	<%= f.text_area :name, :id => "description", :class => "input-fields", :required => true, :placeholder => "description" %>
+	<%= f.text_area :description, :class => "input-fields", :required => true, :placeholder => "description", :cols => "40", :rows => "10", :value => @bookmark[:description] %>
 
-	<%= f.text_area :name, :id => "tag-list", :class => "input-fields", :required => true, :placeholder => "list of comma seperated tags" %>
+	<%= f.text_area :tags, :class => "input-fields", :required => true, :placeholder => "list of comma seperated tags", :cols => "40", :rows => "5", :value => (@bookmark[:tags]).join(",") %>
 
-	<span class="checkbox">Private <%= f.check_box :value => "private" %></span>
+	<span class="checkbox">Private <%= f.check_box :isPrivate, :checked => @bookmark[:isPrivate] %></span>
 
-	<%= submit_tag "Save", :id => "btn" %>
-
-	
+	<%= submit_tag "Save", :id => "btn" %>	
 <% end %>
-
-<!--
-
-	<span>
-        <fieldset class="rateme">
-	        <input type="radio" id="star1" name="rateme" value="5">
-	        <label for="star1">1</label>
-	        <input type="radio" id="star2" name="rateme" value="4">
-	        <label for="star2">2</label>
-	        <input type="radio" id="star3" name="rateme" value="3">
-	        <label for="star3">3</label>
-	        <input type="radio" id="star4" name="rateme" value="2">
-	        <label for="star4">4</label>
-	        <input type="radio" id="star5" name="rateme" value="1">
-	        <label for="star5">5</label>
-        </fieldset>
-	</span>
--->

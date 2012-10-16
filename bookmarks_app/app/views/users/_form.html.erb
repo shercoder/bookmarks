@@ -1,16 +1,17 @@
 <section class="form">
-	<%= form_for :user, form_options do |f| %> 
-	    <%= f.text_field  :name, :id => "first-name", :class => "input-fields", :required => true, :placeholder => "first name" %>
+	<%= form_for :users, form_options do |f| %> 
+	    <%= f.text_field  :first_name, :class => "input-fields", :required => true, :placeholder => "first name", :value => @user[:first_name]%>
 	 
-	    <%= f.text_field  :name, :id => "last-name", :class => "input-fields", :required => true, :placeholder => "last name"%>
+	    <%= f.text_field  :last_name, :class => "input-fields", :required => true, :placeholder => "last name", :value => @user[:last_name] %>
 
-	    <%= f.text_field  :name, :id => "email", :class => "input-fields", :required => true, :type => "email", :placeholder => "email@email.com"%>
+	    <%= f.text_field  :email, :class => "input-fields", :required => true, :type => "email", :placeholder => "email@email.com", 
+	    				 :value => @user[:email] %>
 
-	    <%= f.text_field  :name, :id => "username", :class => "input-fields", :required => true, :placeholder => "username" %>
+	    <%= f.text_field  :username, :class => "input-fields", :required => true, :placeholder => "username", :value => @user[:username] %>
 
-	    <%= f.password_field  :name, :id => "password", :class => "input-fields", :required => true, :placeholder => "password" %>
+	    <%= f.password_field  :password, :class => "input-fields", :required => true, :placeholder => "password" %>
 
-	    <%= f.password_field  :name, :id => "confirm-password", :class => "input-fields", :required => true, :placeholder => "confirm password"  %>
+	    <%= f.password_field  :confirm_password, :class => "input-fields", :required => true, :placeholder => "confirm password"  %>
 
 	  <%= submit_tag "Submit", :id => "btn" %>
 	<% end %>

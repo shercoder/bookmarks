@@ -1,14 +1,15 @@
 <section id="content" class="center">
-	<div id="profile">
-		<div id="user-info-container">
-			<h1>SherCoder <span>[Pardeep Singh]</span></h1>
-			<%= link_to "Edit Profile", edit_user_path(:id) %>
-			
-			<div class="clear"></div>
-
-			<div id="user-image">
-				<%= image_tag "mypic.jpg" %>
+	<% @users.each_with_index do |user, index| %>
+		<div id="profile">
+			<div id="user-info-container">
+				<h1><%= user[:username] %>
+				<span>[ <%= user[:first_name] %> <%= user[:last_name] %>]</span></h1>
+				<%= link_to "Profile", user_path(index) %>
+				<div class="clear"></div>
+				<div id="user-image">
+					<%= image_tag user[:user_image] %>
+				</div>
 			</div>
 		</div>
-	</div>
+	<% end %>
 </section>
