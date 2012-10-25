@@ -1,5 +1,11 @@
 class UsersController < ApplicationController
 
+	# before_filter goes here
+
+	#layout Proc.new{ ['new', 'create'].include?(action_name) ? 'landing' : 'application' }
+
+	layout :resolve_layout
+	
 	# GET => /users
 	def index
 		@users = user_list
@@ -46,5 +52,14 @@ class UsersController < ApplicationController
 		 {:username => "BidenTheRaven", :first_name => "Joe", 
 			:last_name => "Biden", :user_image => "mypic.jpg",
 			:email => "biden@theraven.com"}]
+	end
+
+	def resolve_layout
+	    case action_name
+	    when "new", "create"
+	      "landing"
+	    else
+	      "application"
+	    end
 	end
 end

@@ -15,23 +15,27 @@
 			<hgroup>
 				<ul>
 					<li><%=image_tag"attachment.png"%></li>
-					<li>
-						<!-- TODO: fix the user path -->
-						<h1 id="logo"><%= link_to "clip it!", user_path(:id) %></h1>
-					</li>
+					<li><h1 id="logo"><%= link_to "clip it!", root_path %></h1></li>
 				</ul>
 			</hgroup>
 
+			<nav id="menu">
+				<ul>
+					<li><%= link_to "Tags", "#" %></li>
+					<li><li><%= link_to "Popular", "#" %></li></li>
+				</ul>
+			</nav>
+
+			<nav id="right">
+				<ul>
+					<li><a href="login.html">Login</a></li>
+					<li><a href="users/new.html">Register</a></li>
+				</ul>
+			</nav>
 		</div>
 	</header>
 
 	<section id="main-wrapper" class="content-wrapper">
-		<% if flash[:notice] %>
-		  <p class="dark-color">
-		    <%= flash[:notice] %>
-		  </p>
-		<% end %>
-
 		<%= yield %>
 	</section>
 

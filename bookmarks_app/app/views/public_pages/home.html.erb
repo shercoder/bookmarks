@@ -1,0 +1,31 @@
+<section id="content" class="center">
+	<article id="people-container">
+		<h1 style="font-size: 32px;">Clip it</h1>
+		<table class="main-content">
+			<tr>
+				<td>clip it</td><td> paste it</td><td> share it</td>
+			</tr>
+			<tr>
+				<td><%=image_tag "clip.svg", :size => "64x64" %>
+				
+				<td><%=image_tag "pasteit.svg", :size => "64x64" %></td>
+				<td><%=image_tag "share.svg", :size => "64x64" %></td>
+			</tr>
+
+			<tr>
+				<td colspan="3">
+					Your one stop to save and share your favorite bookmarks!
+				</td>
+			</tr>
+		</table>
+	</article>
+
+	<div style="margin-bottom: 40px"></div>
+
+	<article id="people-container" style="border-radius:10px;">
+		<h1 style="font-size: 32px; border-radius:10px;">
+			<%= link_to "Join it", new_user_path %>
+		</h1>
+	</article>
+
+</section>

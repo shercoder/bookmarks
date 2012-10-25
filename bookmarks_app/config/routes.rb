@@ -1,6 +1,7 @@
 BookmarksApp::Application.routes.draw do
 
-  root :to => 'bookmarks#index'
+  root :to => 'public_pages#home'
+  #root :to => 'bookmarks#index'
   match 'signup' => 'users#new'
   resources :users
   resources :bookmarks
