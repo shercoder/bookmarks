@@ -1,10 +1,10 @@
 BookmarksApp::Application.routes.draw do
 
-  root :to => 'public_pages#home'
-  #root :to => 'bookmarks#index'
-  match 'signup' => 'users#new'
-  resources :users
+  resources :users, :except => [:index, :new, :destroy]
   resources :bookmarks
+  
+  match 'signup' => 'users#new'
+  root :to => 'public_pages#home'
 
 
   # The priority is based upon order of creation:
