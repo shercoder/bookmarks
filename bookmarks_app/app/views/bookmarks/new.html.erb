@@ -1,6 +1,25 @@
+<% if @bookmark.errors.any? %>
+	<div id="errors" >
+	    <h2> 
+	    	<%=pluralize(@bookmark.errors.size,"error")%> prevented saving 
+	    </h2>
+
+	    <ul>
+	        <% @bookmark.errors.full_messages.each do |message| %>
+	            <li><%= message %></li>
+	        <% end %>
+	    </ul>
+	</div>
+<% end %>
+
 <section id="people-container">
 	<h1>Create New Bookmark</h1>
 	<%= render :partial => "form",
-           :locals  => {:form_options => {:url => bookmarks_path}} %>
+           :locals  => {
+           		:form_options => {
+           	 		 :url => bookmarks_path
+           	 		#:url => :controller => :bookmarks, :action => :create, :user_id => @user[:id]
+           	 	}
+           	} %>
 
 </section>

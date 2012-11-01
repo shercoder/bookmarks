@@ -1,4 +1,20 @@
+<% if @user.errors.any? %>
+	<div id="errors" >
+	    <h2> 
+	    	<%=pluralize(@user.errors.size,"error")%> prevented saving 
+	    </h2>
+
+	    <ul>
+	        <% @user.errors.full_messages.each do |message| %>
+	            <li><%= message %></li>
+	        <% end %>
+	    </ul>
+	</div>
+<% end %>
+
 <section class="form-wrapper container center">
+
 	<h2 class="heading">Registeration Form</h2>
 	<%= render :partial => "form", :locals  => {:form_options => {:url => users_path}} %>	
+
 </section >

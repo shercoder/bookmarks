@@ -1,62 +1,56 @@
 class BookmarksController < ApplicationController
 
+	before_filter :load_user, :except => :show
+
 	# GET => /bookmarks
-	def index
-		@bookmarks = bookmark_list
-	end
+	# def index
+	# 	@bookmarks = bookmark_list
+	# end
 
 	# GET => /bookmarks/:id
 	def show
-		@bookmark = bookmark_list[params[:id].to_i]
+		@bookmark = Bookmark.find(params[:id])
 	end
 
 	# GET => /bookmarks/new
 	def new
-		@bookmark = { :rating => 1, :tags => []}
+		@bookmark = Bookmark.new
 	end
 
 	# POST => /bookmarks/
 	def create
-		redirect_to bookmarks_url, :notice => "Bookmark created successfully!"
+		@tags = params[:tags]
+		@bookmark = Bookmark.new(params[:bookmark])
+		@bookmark[:rating] = params[:rateme]
+		if @bookmark.save
+			# redirect_to bookmark_url(@bookmark), :notice => "Created successfully!"
+			redirect_to user_url(@user), :notice => "Created successfully!"
+		else
+			render "new" # OR render :new
+		end
 	end
 
-	# GET => /bookmarks/:id/edit
-	def edit
-		@bookmark = bookmark_list[(params[:id]).to_i]
-	end
+	# # GET => /bookmarks/:id/edit
+	# def edit
+	# 	@bookmark = bookmark_list[(params[:id]).to_i]
+	# end
 
-	# PUT => /bookmarks/:id
-	def update
-		flash[:notice] = "Successfully Updated!"
+	# # PUT => /bookmarks/:id
+	# def update
+	# 	flash[:notice] = "Successfully Updated!"
     
-    	redirect_to bookmark_url(params[:id])
-	end
+ #    	redirect_to bookmark_url(params[:id])
+	# end
 
-	# DELETE => /bookmarks/:id
-	def destroy
-		redirect_to bookmarks_url, :notice => "Bookmark deleted successfully!"
-	end
+	# # DELETE => /bookmarks/:id
+	# def destroy
+	# 	redirect_to bookmarks_url, :notice => "Bookmark deleted successfully!"
+	# end
 
-	private
-	def bookmark_list
-		[{:type => "Article", :title => "How did they find that monkey?", :rating => 3, 
-			:source => "http://www.sciencemag.org", 
-			:description => "I am shocked. How did they find that monkey? 
-							This is just crazy. I am going nuts. Am I going nuts? 
-							I mean seriously where did he come from?",
-			:tags => ["monkey", "africa", "new-species", "animal"],
-			:isPrivate => true},
-		 {:type => "Video", :title => "Wow account deleted!", :rating => 4,
-		 	:source => "http://www.youtube.com", 
-			:description => "That kid is going crazy because his mother deleted his WOW account!",
-			:tags => ["crazy", "WOW", "video", "youtube"],
-			:isPrivate => false},
-		 {:type => "Article", :title => "Joe Biden vs Paul Ryan? Seriously?", :rating => 5,
-		 	:source => "http://www.washingtonpost.com", 
-			:description => "They're both dumb, they weren't even answering the questions.
-							 The moderator was tired of their shit!",
-			:tags => ["biden", "ryan", "election-2012", "democrats", "republicans"],
-			:isPrivate => true}]
+	# private
+
+	def load_user
+		@user = User.find(params[:user_id])
 	end
 
 end

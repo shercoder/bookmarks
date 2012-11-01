@@ -1,8 +1,15 @@
 BookmarksApp::Application.routes.draw do
 
   resources :users, :except => [:index, :new, :destroy]
-  resources :bookmarks
-  
+
+  resources :bookmarks, :except => [:index] do
+    get 'popular', :on => :collection
+
+    resources :taggings, :only => [:create, :destroy]
+  end
+
+  resources :tags, :only   => [:index, :show]
+
   match 'signup' => 'users#new'
   root :to => 'public_pages#home'
 

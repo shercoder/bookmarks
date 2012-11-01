@@ -1,58 +1,65 @@
 class UsersController < ApplicationController
 
-	# before_filter goes here
-
-	#layout Proc.new{ ['new', 'create'].include?(action_name) ? 'landing' : 'application' }
+	# before_filters goes here
+	before_filter :load_user
 
 	layout :resolve_layout
 	
 	# GET => /users
 	def index
-		@users = user_list
+		@users = User.all
 	end
 
 	# GET => /users/:id
 	def show
-		@user = user_list[params[:id].to_i]
+		# @user = User.find(params[:id])
+		@user = User.find_by_username(params[:id])
 	end
 
 	# GET => /users/new
 	def new
-		@user = {}
+		@user = User.new
 	end
 
 	# POST => /users/
 	def create
-		redirect_to users_url, :notice => "Created successfully!"
+		@user = User.new(params[:user])
+		if @user.save
+			redirect_to user_url(@user), :notice => "Created successfully!"
+		else
+			render "new"
+		end
 	end
 
 	# GET => /users/:id/edit
 	def edit
-		@user = user_list[(params[:id]).to_i]
+		@user = User.find_by_username(params[:id])
 	end
 
 	# PUT => /users/:id
 	def update
-		flash[:notice] = "Successfully Updated!"
-    
-    	redirect_to user_url(params[:id])
+    	@user = User.find_by_username(params[:id])
+
+	    if @user.update_attributes(params[:user])
+	       redirect_to user_url(@user), :notice => "Successfully Updated!"
+	      # redirect_to user_url(@user.id), :notice => "Updated Dude!"
+	      # redirect_to user_url(:id => @user.id), :notice => "Updated Dude!"
+	      # redirect_to @user, :notice => "Successfully Updated!"
+	    else
+	      render "edit"
+	    end
 	end
 
 	# DELETE => /users/:id
 	def destroy
-		redirect_to users_url, :notice => "Deleted successfully!"
+		@user = User.find_by_username(params[:id])
+
+    	@user.destroy
+
+    	redirect_to users_url, :notice => "Deleted successfully!"
 	end
 
 	private 
-
-	def user_list
-		[{:username => "SherCoder", :first_name => "Pardeep", 
-			:last_name => "Singh", :user_image => "mypic.jpg",
-			:email => "shercoder@shercoder.com"},
-		 {:username => "BidenTheRaven", :first_name => "Joe", 
-			:last_name => "Biden", :user_image => "mypic.jpg",
-			:email => "biden@theraven.com"}]
-	end
 
 	def resolve_layout
 	    case action_name
@@ -61,5 +68,9 @@ class UsersController < ApplicationController
 	    else
 	      "application"
 	    end
+	end
+
+	def load_user
+		@user = User.find_by_username(params[:id])
 	end
 end

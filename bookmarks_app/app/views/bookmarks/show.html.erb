@@ -2,7 +2,6 @@
 	<h1><%= @bookmark[:title] %></h1>
 	<table id="details">
 		<tr>
-			<td><%= @bookmark[:type] %></td>
 			<td>
 				<% @bookmark[:rating].to_i.times do %>
 					&bigstar;
@@ -13,7 +12,9 @@
 			</td>
 			<td>
 				<span id="btn">
-					<%= link_to "Delete", bookmark_path(params[:id]), :method => :delete, :confirm => "Are ju shure ju wantt to deleeete?"%>
+					<%= link_to "Delete", bookmark_path(params[:id]), 
+						:method => :delete, 
+						:confirm => "Are ju shure ju wantt to deleeete?"%>
 				</span>
 				<span id="btn">
 					<%= link_to "Edit", edit_bookmark_path(params[:id]) %>
@@ -21,20 +22,16 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="column-width" colspan="3"><%= link_to "Link to the bookmark", @bookmark[:source]%> </td>
+			<td class="column-width" colspan="3">
+				<%= link_to "Link to the bookmark", @bookmark[:url]%> 
+			</td>
 		</tr>
 		<tr>
 			<td><h1>Description</h1></td>
 		</tr>
 		<tr>
-			<td class="column-width" colspan="3"><%= @bookmark[:description] %></td>
+			<td class="column-width" colspan="3"><%= @bookmark[:notes] %></td>
 		<tr>
-		<tr>
-			<td colspan="3">
-				<% @bookmark[:tags].each do |tag| %>
-					<%= link_to tag, "#"  %>
-				<% end %>
-			</td>
-		<tr>
+		
 	</table>
 </section>
