@@ -32,6 +32,14 @@
 		<tr>
 			<td class="column-width" colspan="3"><%= @bookmark[:notes] %></td>
 		<tr>
+
+		<tr>
+			<td>
+				<% @tags.each do |tag| %>
+					<%= link_to "##{tag[:name]}", tag_path(tag[:id]) %>
+				<% end %>
+			</td>
+		</tr>
 		
 	</table>
 </section>

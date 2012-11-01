@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
 
-	before_filter :load_user, :except => [:show, :popular, :destroy]
+	before_filter :load_user, :except => [:show, :popular, :destroy, :edit, :update]
 
 	# GET => /bookmarks
 	# def index
@@ -11,6 +11,7 @@ class BookmarksController < ApplicationController
 	def show
 		@bookmark = Bookmark.find(params[:id])
 		@bookmark.increment!(:view_count)
+		@tags = @bookmark.tags.all
 	end
 
 	# GET => /bookmarks/new
@@ -42,13 +43,31 @@ class BookmarksController < ApplicationController
 	# GET => /bookmarks/:id/edit
 	def edit
 		@bookmark = Bookmark.find(params[:id])
+		@tags = @bookmark.tags.all
 	end
 
 	# PUT => /bookmarks/:id
 	def update
 		@bookmark = Bookmark.find(params[:id])
+		@bookmark[:rating] = params[:rateme]
+		@bookmark[:user_id] = params[:user_id]
 
-		if @user.update_attributes(params[:bookmark]) && @user.update_attribute()
+		old_tags = @bookmark.tags.all.map{|x| x[:name]}
+		new_tags = params[:tags].split(",").map { |x| x.strip }
+		diff_destroy = old_tags-new_tags
+		diff_new = new_tags-old_tags
+
+		if @bookmark.update_attributes(params[:bookmark])
+			#delete tagging
+			diff_destroy.each do |d|
+				t = Tag.find_by_name(d)
+			    tagging_to_destroy = Tagging.find_by_tag_id(t[:id])
+				tagging_to_destroy.destroy
+			end
+			diff_new.each do |n|
+				b_tag = Tag.find_or_create_by_name(n)
+				tagging = Tagging.create(:bookmark_id => @bookmark[:id], :tag_id => b_tag[:id])
+			end
     		redirect_to bookmark_url(params[:id])
     	end
 	end

@@ -1,7 +1,7 @@
 <%= form_for :bookmark, form_options do |f| %> 
-	<%= f.text_field  :title, :class => "input-fields", :required => true, :placeholder => "title", :size => "40", :value => @bookmark[:title] %>
+	<%= f.text_field  :title, :class => "input-fields", :placeholder => "title", :size => "40", :value => @bookmark[:title] %>
 
-	<%= f.text_field  :url, :class => "input-fields", :required => true, :placeholder => "www.example.com/article1", :size => "40", :value => @bookmark[:url] %>
+	<%= f.text_field  :url, :class => "input-fields", :placeholder => "www.example.com/article1", :size => "40", :value => @bookmark[:url] %>
 
 	<span>
         <%= field_set_tag nil, :class => "rateme" do %>
@@ -23,9 +23,10 @@
         <% end %>
 	</span>
 
-	<%= f.text_area :notes, :class => "input-fields", :required => true, :placeholder => "description", :cols => "40", :rows => "10", :value => @bookmark[:notes] %>
+	<%= f.text_area :notes, :class => "input-fields", :placeholder => "description", :cols => "40", :rows => "10", :value => @bookmark[:notes] %>
 
-	<%= text_area_tag :tags, nil, :class => "input-fields", :required => true, :placeholder => "list of comma seperated tags", :cols => "40", :rows => "3" %>
+	<%= text_area_tag :tags, @bookmark.tags.map{|tag| tag[:name]}.join(","), 
+			:class => "input-fields", :placeholder => "list of comma seperated tags", :cols => "40", :rows => "3" %>
 
 	<span class="checkbox">Private <%= f.check_box :private, :checked => @bookmark[:private] %></span>
 

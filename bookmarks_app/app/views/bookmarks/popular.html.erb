@@ -9,6 +9,14 @@
 							<tr>
 								<td><%= popular[:view_count] %></td>
 								<td><%= popular[:title] %></td>
+								<td>
+									<% popular[:rating].to_i.times do %>
+										&bigstar;
+									<% end %>
+									<% (5-(popular[:rating].to_i)).times do %>
+										&star;
+									<% end %>
+								</td>
 							</tr>
 						</table>
 					<% end %>

@@ -1,0 +1,27 @@
+<section id="content" class="center">	
+	<article id="bookmark-list">
+		<h1><%= @tag[:name] %> bookmarks</h1>
+		<% @tag.bookmarks.each do |bookmark| %>
+			<% if !bookmark[:private] %>
+				<section class="bookmark">
+					<%= link_to bookmark_path(bookmark[:id]) do %>
+						<table>
+							<tr>
+								<td><%= bookmark[:title] %></td>
+								<td>
+									<% bookmark[:rating].to_i.times do %>
+										&bigstar;
+									<% end %>
+									<% (5-(bookmark[:rating].to_i)).times do %>
+										&star;
+									<% end %>
+								</td>
+								<td><%= bookmark[:view_count] %></td>
+							</tr>
+						</table>
+					<% end %>
+				</section>
+			<% end %>
+		<% end %>
+	</article>
+</section>

@@ -4,6 +4,11 @@ class TagsController < ApplicationController
 		@tags = Tag.all
 	end
 
+	def show
+		@tag = Tag.find(params[:id])
+		#@bookmarks = Tag.bookmarks.find(params[:id])
+	end
+
 	def new
 		@tag = Tag.new
 	end
