@@ -3,7 +3,7 @@
 		<div id="user-info-container">
 			<h1><%= @user[:username] %>
 			<span>[ <%= @user[:first_name] %> <%= @user[:last_name] %>]</span></h1>
-			<%= link_to "Edit Profile", edit_user_path(params[:id]) %>
+			<%= link_to "Edit Profile", edit_user_path(@user) %>
 			<div class="clear"></div>
 			<div id="user-image">
 				<!--<%= image_tag @user[:user_image] %> -->
@@ -13,6 +13,24 @@
 
 	<article class="center">
 		
+	</article>
+
+	<article id="bookmark-list">
+		<h1><%= @user[:username] %>'s bookmarks</h1>
+		<% @bookmarks.each do |bookmark| %>
+				<section class="bookmark">
+					<%= link_to bookmark_path(bookmark[:id]) do %>
+						<table>
+							<tr>
+								<td><%= bookmark[:title] %></td>
+								<td>
+									<%= link_to "X", bookmark_path(bookmark), :method => :delete %>
+								</td>
+							</tr>
+						</table>
+					<% end %>
+				</section>
+		<% end %>
 	</article>
 
 </section>

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
 	# before_filters goes here
-	before_filter :load_user, :except => :show
+	before_filter :load_user, :except => [:show]
 
 	#layout :resolve_layout
 	
@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 	# GET => /users/:id
 	def show
 		@user = User.find_by_username(params[:id])
+		@bookmarks = @user.bookmarks.all
 	end
 
 	# GET => /users/new

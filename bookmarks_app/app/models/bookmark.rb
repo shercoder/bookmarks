@@ -9,7 +9,7 @@ class Bookmark < ActiveRecord::Base
 
 	validates :title,
 		:length => {
-			:in => 5..35
+			:in => 5..100
 		}
 
 	validates :notes,
@@ -19,7 +19,9 @@ class Bookmark < ActiveRecord::Base
 
 	validates :rating, 
 		:numericality => {
-			:only_integer => true
+			:only_integer => true,
+			:greater_than => 0,
+			:less_than_or_equal_to => 5
 		}
 
 end

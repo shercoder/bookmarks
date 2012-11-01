@@ -313,12 +313,16 @@ input:focus {
 	border-top: 1px dotted #A14708;
 }
 
-.bookmark > a {
+.bookmark > a, .bookmark a {
 	color: #A14708;
 }
 
-.bookmark > a:hover {
+.bookmark > a:hover, .bookmark a:hover a {
 	color: #F5EDD5;
+}
+
+.bookmark a:hover a:hover {
+	text-decoration: underline;
 }
 
 .bookmark > a > ul {

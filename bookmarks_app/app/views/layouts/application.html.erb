@@ -57,9 +57,11 @@
 
 	<section id="main-wrapper" class="content-wrapper">
 		<% if flash[:notice] %>
+		<section id="content" class="center">
 		  <p class="dark-color">
 		    <%= flash[:notice] %>
 		  </p>
+		</section>
 		<% end %>
 
 		<%= yield %>

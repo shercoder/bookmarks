@@ -1,0 +1,7 @@
+<section id="content" class="center">
+	<ul>
+		<% @tags.each do |tag| %>
+			<li><%= tag[:name] %></li>
+		<% end %>
+	</ul>
+</section>

@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
 
-	before_filter :load_user, :except => [:show, :popular]
+	before_filter :load_user, :except => [:show, :popular, :destroy]
 
 	# GET => /bookmarks
 	# def index
@@ -24,7 +24,14 @@ class BookmarksController < ApplicationController
 		@bookmark = Bookmark.new(params[:bookmark])
 		@bookmark[:rating] = params[:rateme]
 		@bookmark[:user_id] = params[:user_id]
+
 		if @bookmark.save
+			# creating tags
+			params[:tags].split(',').each do |tag|
+				@b_tag = Tag.find_or_create_by_name(tag.strip)
+				@tagging = Tagging.create(:bookmark_id => @bookmark[:id], :tag_id => @b_tag[:id])
+			end
+
 			redirect_to bookmark_url(@bookmark), :notice => "Created successfully!"
 			#redirect_to user_url(@user), :notice => "Created successfully!"
 		else
@@ -46,10 +53,12 @@ class BookmarksController < ApplicationController
     	end
 	end
 
-	# # DELETE => /bookmarks/:id
-	# def destroy
-	# 	redirect_to bookmarks_url, :notice => "Bookmark deleted successfully!"
-	# end
+	# DELETE => /bookmarks/:id
+	def destroy
+		@bookmark = Bookmark.find(params[:id])
+		@bookmark.destroy
+		redirect_to user_url(@bookmark.user), :notice => "Bookmark deleted successfully!"
+	end
 
 	# /bookmarks/popular
 	def popular
