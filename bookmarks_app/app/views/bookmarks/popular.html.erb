@@ -1,0 +1,19 @@
+<section id="content" class="center"
+	<article id="bookmark-list">
+		<h1>Popular Bookmarks</h1>
+		<% @popular_bookmarks.each do |popular| %>
+			<% if popular[:view_count] %>
+				<section class="bookmark">
+					<%= link_to popular[:url] do %>
+						<table>
+							<tr>
+								<td><%= popular[:view_count] %></td>
+								<td><%= popular[:title] %></td>
+							</tr>
+						</table>
+					<% end %>
+				</section>
+			<% end %>
+		<% end %>
+	</article>
+</section>

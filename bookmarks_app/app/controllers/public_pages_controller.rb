@@ -1,6 +1,6 @@
 class PublicPagesController < ApplicationController
 
-	layout 'landing'
+	#layout 'landing'
 
 	def home
 	end

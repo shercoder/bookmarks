@@ -433,7 +433,7 @@ input:focus {
 
 /* bookmark detail page */
 
-#people-container > h1 {
+#people-container > h1, .popular_bookmarks th {
 	padding: 10px;
 	font-size: 1.2em;
 	text-align: center;

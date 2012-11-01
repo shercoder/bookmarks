@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
 
 	# before_filters goes here
-	before_filter :load_user
+	before_filter :load_user, :except => :show
 
-	layout :resolve_layout
+	#layout :resolve_layout
 	
 	# GET => /users
 	def index
@@ -12,7 +12,6 @@ class UsersController < ApplicationController
 
 	# GET => /users/:id
 	def show
-		# @user = User.find(params[:id])
 		@user = User.find_by_username(params[:id])
 	end
 
@@ -61,14 +60,14 @@ class UsersController < ApplicationController
 
 	private 
 
-	def resolve_layout
-	    case action_name
-	    when "new", "create"
-	      "landing"
-	    else
-	      "application"
-	    end
-	end
+	# def resolve_layout
+	#     case action_name
+	#     when "new", "create"
+	#       "landing"
+	#     else
+	#       "application"
+	#     end
+	# end
 
 	def load_user
 		@user = User.find_by_username(params[:id])

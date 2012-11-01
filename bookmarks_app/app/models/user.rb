@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 	validates :username, 
 		:length => { 
 			:with => /\A\w+\Z/,
-			:in => 6..15, 
+			:in => 4..15, 
 			:too_short => "must be atleast 6 characters long.",
 			:too_long => "must be less than 15 characters long."
 		},
