@@ -76,7 +76,7 @@ class BookmarksController < ApplicationController
 	def destroy
 		@bookmark = Bookmark.find(params[:id])
 		@bookmark.destroy
-		redirect_to user_url(@bookmark.user), :notice => "Bookmark deleted successfully!"
+		redirect_to user_url(@bookmark.user[:username]), :notice => "Bookmark deleted successfully!"
 	end
 
 	# /bookmarks/popular
