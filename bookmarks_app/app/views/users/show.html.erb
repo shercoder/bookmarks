@@ -5,7 +5,9 @@
 			<span>[ <%= @user[:first_name] %> <%= @user[:last_name] %>]</span></h1>
 			<%= link_to "Edit Profile", edit_user_path(@user) %>
 			<div class="clear"></div>
-			
+			<div id="user-image">
+				<%= image_tag "juan_mata.jpg", :size => "120x80" %>
+			</div>
 		</div>
 	</article>
 

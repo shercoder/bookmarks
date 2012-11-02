@@ -5,13 +5,13 @@ class Bookmark < ActiveRecord::Base
 	
 	attr_accessible :url, :title, :notes, :rating, :private
 
-	# def url=(value)
-	# 	if value.match(/\A"http:\/\/"|"https:\/\/".*/)
-	# 		write_attribute(:url, value.downcase)
-	# 	else
-	# 		write_attribute(:url, ("http://"+value).downcase)
-	# 	end
-	# end
+	def url=(value)
+		if value.match(/\A((http:\/\/)|(https:\/\/)).*/)
+			write_attribute(:url, value.downcase)
+		else
+			write_attribute(:url, ("http://"+value).downcase)
+		end
+	end
 
 	validates_format_of :url, :with => URI::regexp
 
