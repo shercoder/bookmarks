@@ -41,11 +41,11 @@
 			<nav id="right">
 				<% if @user %>
 					<ul>
-						<li><%= link_to "Logoff", "#" %></li>
+						<li><%= link_to "Logoff", signout_path, :method => :delete %></li>
 					</ul>
 				<% else %>
 					<ul>
-						<!--<li><%= link_to "Login", "#" %></li>-->
+						<li><%= link_to "Login", signin_path %></li>
 						<li><%= link_to "Register", signup_path %></li>
 					</ul>
 				<% end %>

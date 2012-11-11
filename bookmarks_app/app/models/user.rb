@@ -1,7 +1,10 @@
 class User < ActiveRecord::Base
+
 	has_many :bookmarks, :dependent => :destroy
 
-	attr_accessible :first_name, :last_name, :username, :email, :password
+	attr_accessible :first_name, :last_name, :username, :email, :password, :password_confirmation
+
+	has_secure_password
 
 	# attr_accessor :password, :password_confirmation
 
@@ -43,7 +46,7 @@ class User < ActiveRecord::Base
 		:with => /\A.+@.+\Z/
 	}
 
-	validates :password, :length => { :minimum => 6 }
+	validates :password, :length => { :in => 6..20 }
 
 	#validates :password_confirmation, :presence => true
 

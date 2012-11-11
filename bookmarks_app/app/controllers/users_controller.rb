@@ -1,14 +1,13 @@
 class UsersController < ApplicationController
 
 	# before_filters goes here
-	before_filter :load_user, :except => [:show]
-
+	before_filter :require_user, :except => [:new, :create]
 	#layout :resolve_layout
 	
 	# GET => /users
-	def index
-		@users = User.all
-	end
+	# def index
+	# 	@users = User.all
+	# end
 
 	# GET => /users/:id
 	def show
@@ -60,15 +59,6 @@ class UsersController < ApplicationController
 	end
 
 	private 
-
-	# def resolve_layout
-	#     case action_name
-	#     when "new", "create"
-	#       "landing"
-	#     else
-	#       "application"
-	#     end
-	# end
 
 	def load_user
 		@user = User.find_by_username(params[:id])

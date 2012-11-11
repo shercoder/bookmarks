@@ -6,7 +6,8 @@
 			<%= link_to "Edit Profile", edit_user_path(@user) %>
 			<div class="clear"></div>
 			<div id="user-image">
-				<%= image_tag "juan_mata.jpg", :size => "120x80" %>
+				<!--<%= image_tag "juan_mata.jpg", :size => "120x80" %>-->
+				<%= gravatar_image_tag @user[:email] %>
 			</div>
 		</div>
 	</article>

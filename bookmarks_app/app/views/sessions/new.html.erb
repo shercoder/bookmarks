@@ -1,0 +1,19 @@
+<% if flash.now[:error] %>
+	<section id="content" class="center">
+  		<p class="dark-color"><%= flash.now[:error] %></p>
+	</section>
+<% end %>
+
+<section class="form-wrapper container center">
+	<h2 class="heading">Sign In</h2>
+	<section class="form">
+		<%= form_for(:session, url: sessions_path) do |f| %>
+
+			<%= f.text_field :username, :class => "input-fields", :placeholder => "username" %>
+
+			<%= f.password_field :password, :class => "input-fields", :placeholder => "password" %>
+
+			<%= submit_tag "SignIn", :id => "btn" %>
+		<% end %>
+	</section>
+</section>

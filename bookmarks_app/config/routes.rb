@@ -11,6 +11,11 @@ BookmarksApp::Application.routes.draw do
   resources :tags, :only   => [:index, :show]
 
   match 'signup' => 'users#new'
+
+  match 'signin'    => "sessions#new"
+  match 'sessions' => "sessions#create",  :via => :post
+  match 'signout'   => "sessions#destroy", :via => :delete
+
   root :to => 'public_pages#home'
 
 
