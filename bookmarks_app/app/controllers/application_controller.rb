@@ -3,12 +3,14 @@ class ApplicationController < ActionController::Base
 
   before_filter :load_current_user
 
-  protected
+  helper_method :load_current_user, :require_user
+
+  # include SessionsHelper
+
+  
 
   def load_current_user
-  	if session[:user_id]
-  		@current_user = User.find(session[:user_id])
-  	end
+  	@current_user = User.find(session[:user_id]) if session[:user_id]
   end
 
   def require_user
@@ -17,4 +19,5 @@ class ApplicationController < ActionController::Base
       redirect_to signin_url
     end
   end
+
 end

@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+
+	# before_filter :require_user, :except => [:destroy]
+
 	def new
 	end
 
@@ -11,7 +14,7 @@ class SessionsController < ApplicationController
 	    	# sign_in method is defined in sessions_helper.rb
 	        # sign_in(user)
 
-	        redirect_to user_url(@user), :notice => "Login success"
+	        redirect_to @user, :notice => "Login success"
 	    else
 	    	flash.now[:error] = "Invalid username/password combination"
 	        render :new

@@ -1,6 +1,6 @@
 class BookmarksController < ApplicationController
 
-	before_filter :load_user, :except => [:show, :popular, :destroy, :edit, :update]
+	before_filter :require_user, :except => [:popular, :show]
 
 	# GET => /bookmarks
 	# def index
@@ -24,19 +24,18 @@ class BookmarksController < ApplicationController
 		@tags = params[:tags]
 		@bookmark = Bookmark.new(params[:bookmark])
 		@bookmark[:rating] = params[:rateme]
-		@bookmark[:user_id] = params[:user_id]
+		@bookmark[:user_id] = load_current_user.id
 
 		if @bookmark.save
 			# creating tags
 			params[:tags].split(',').each do |tag|
-				@b_tag = Tag.find_or_create_by_name(tag.strip)
-				@tagging = Tagging.create(:bookmark_id => @bookmark[:id], :tag_id => @b_tag[:id])
+				b_tag = Tag.find_or_create_by_name(tag.strip)
+				tagging = Tagging.create(:bookmark_id => @bookmark[:id], :tag_id => b_tag[:id])
 			end
 
 			redirect_to bookmark_url(@bookmark), :notice => "Created successfully!"
-			#redirect_to user_url(@user), :notice => "Created successfully!"
 		else
-			render "new" # OR render :new
+			render "new"
 		end
 	end
 
@@ -50,7 +49,7 @@ class BookmarksController < ApplicationController
 	def update
 		@bookmark = Bookmark.find(params[:id])
 		@bookmark[:rating] = params[:rateme]
-		@bookmark[:user_id] = params[:user_id]
+		@bookmark[:user_id] = load_current_user.id
 
 		old_tags = @bookmark.tags.all.map{|x| x[:name]}
 		new_tags = params[:tags].split(",").map { |x| x.strip }
@@ -82,12 +81,6 @@ class BookmarksController < ApplicationController
 	# /bookmarks/popular
 	def popular
 		@popular_bookmarks = Bookmark.order("view_count DESC").limit(10)
-	end
-
-	private
-
-	def load_user
-		@user = User.find(params[:user_id])
 	end
 
 end

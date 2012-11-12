@@ -30,7 +30,5 @@
 
 	<span class="checkbox">Private <%= f.check_box :private, :checked => @bookmark[:private] %></span>
 
-	<%= hidden_field_tag :user_id, nil, :value => params[:user_id] %>
-
 	<%= submit_tag "Save", :id => "btn" %>	
 <% end %>

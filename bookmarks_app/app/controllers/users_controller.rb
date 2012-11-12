@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
 	# before_filters goes here
 	before_filter :require_user, :except => [:new, :create]
-	#layout :resolve_layout
 	
 	# GET => /users
 	# def index
@@ -24,7 +23,10 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(params[:user])
 		if @user.save
-			redirect_to user_url(@user), :notice => "Created successfully!"
+			reset_session
+		    session[:user_id] = @user.id
+			flash[:success] = "Welcome to Clipit!"
+			redirect_to @user
 		else
 			render "new"
 		end
@@ -41,9 +43,6 @@ class UsersController < ApplicationController
 
 	    if @user.update_attributes(params[:user])
 	       redirect_to user_url(@user), :notice => "Successfully Updated!"
-	      # redirect_to user_url(@user.id), :notice => "Updated Dude!"
-	      # redirect_to user_url(:id => @user.id), :notice => "Updated Dude!"
-	      # redirect_to @user, :notice => "Successfully Updated!"
 	    else
 	      render "edit"
 	    end
@@ -52,15 +51,7 @@ class UsersController < ApplicationController
 	# DELETE => /users/:id
 	def destroy
 		@user = User.find_by_username(params[:id])
-
     	@user.destroy
-
     	redirect_to users_url, :notice => "Deleted successfully!"
-	end
-
-	private 
-
-	def load_user
-		@user = User.find_by_username(params[:id])
 	end
 end
