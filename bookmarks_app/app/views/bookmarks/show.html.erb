@@ -10,7 +10,7 @@
 					&star;
 				<% end %>
 			</td>
-			<% if not_authorize_to_delete_or_edit %>
+			<% if !not_authorize_to_delete_or_edit %>
 				<td>
 					<span id="btn">
 						<%= link_to "Delete", bookmark_path(params[:id]), 

@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 
 	# before_filters goes here
 	before_filter :require_user, :except => [:new, :create]
-	before_filter :correct_user, :except => [:new, :create]
+	before_filter :correct_user, :except => [:new, :create, :show]
+	# helper_method :correct_user
 	
 	# GET => /users
 	# def index
@@ -12,7 +13,11 @@ class UsersController < ApplicationController
 	# GET => /users/:id
 	def show
 		@user = User.find_by_username(params[:id])
-		@bookmarks = @user.bookmarks.all
+		if load_current_user.username != params[:id]
+			@bookmarks = @user.bookmarks.where("private = ?", false)
+		else
+			@bookmarks = @user.bookmarks.all
+		end
 	end
 
 	# GET => /users/new
@@ -59,6 +64,6 @@ class UsersController < ApplicationController
 	private
 	def correct_user
 		user = User.find_by_username(params[:id])
-		redirect_to load_current_user, :notice => "You are not authorize to look into other user's profile!" unless load_current_user?(user)
+		redirect_to load_current_user, :notice => "You are not authorized to perform this action!" unless load_current_user?(user)
 	end
 end

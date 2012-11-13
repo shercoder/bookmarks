@@ -3,7 +3,9 @@
 		<div id="user-info-container">
 			<h1><%= @user[:username] %>
 			<span>[ <%= @user[:first_name] %> <%= @user[:last_name] %>]</span></h1>
-			<%= link_to "Edit Profile", edit_user_path(@user) %>
+			<% if load_current_user.username == params[:id] %>
+				<%= link_to "Edit Profile", edit_user_path(load_current_user) %>
+			<% end %>
 			<div class="clear"></div>
 			<div id="user-image">
 				<!--<%= image_tag "juan_mata.jpg", :size => "120x80" %>-->
