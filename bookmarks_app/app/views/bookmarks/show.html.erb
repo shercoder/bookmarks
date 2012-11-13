@@ -10,16 +10,18 @@
 					&star;
 				<% end %>
 			</td>
-			<td>
-				<span id="btn">
-					<%= link_to "Delete", bookmark_path(params[:id]), 
-						:method => :delete, 
-						:confirm => "Are ju shure ju wantt to deleeete?"%>
-				</span>
-				<span id="btn">
-					<%= link_to "Edit", edit_bookmark_path(params[:id]) %>
-				</span>
-			</td>
+			<% if not_authorize_to_delete_or_edit %>
+				<td>
+					<span id="btn">
+						<%= link_to "Delete", bookmark_path(params[:id]), 
+							:method => :delete, 
+							:confirm => "Are ju shure ju wantt to deleeete?"%>
+					</span>
+					<span id="btn">
+						<%= link_to "Edit", edit_bookmark_path(params[:id]) %>
+					</span>
+				</td>
+			<% end %>
 		</tr>
 		<tr>
 			<td class="column-width" colspan="3">

@@ -1,6 +1,10 @@
 class BookmarksController < ApplicationController
 
 	before_filter :require_user, :except => [:popular, :show]
+	before_filter :correct_user, :except => [:popular, :show, :new, :create]
+
+	helper_method :not_authorize_to_delete_or_edit
+	# around_filter :record_not_found
 
 	# GET => /bookmarks
 	# def index
@@ -9,22 +13,26 @@ class BookmarksController < ApplicationController
 
 	# GET => /bookmarks/:id
 	def show
-		@bookmark = Bookmark.find(params[:id])
-		@bookmark.increment!(:view_count)
-		@tags = @bookmark.tags.all
+		@bookmark = Bookmark.find_by_id(params[:id])
+		if !@bookmark.nil?
+			@bookmark.increment!(:view_count)
+			@tags = @bookmark.tags.all
+		else
+			redirect_to load_current_user, :notice => "Record Not Found!"
+		end
 	end
 
 	# GET => /bookmarks/new
 	def new
-		@bookmark = Bookmark.new
+		@bookmark = load_current_user.bookmarks.new
 	end
 
 	# POST => /bookmarks/
 	def create
 		@tags = params[:tags]
-		@bookmark = Bookmark.new(params[:bookmark])
+		@bookmark = load_current_user.bookmarks.new(params[:bookmark])
 		@bookmark[:rating] = params[:rateme]
-		@bookmark[:user_id] = load_current_user.id
+		# @bookmark[:user_id] = load_current_user.id
 
 		if @bookmark.save
 			# creating tags
@@ -41,7 +49,10 @@ class BookmarksController < ApplicationController
 
 	# GET => /bookmarks/:id/edit
 	def edit
-		@bookmark = Bookmark.find(params[:id])
+		@bookmark = Bookmark.find_by_id(params[:id])
+		if @bookmark.nil?
+			redirect_to load_current_user, :notice => "Record Not Found!"
+		end
 		@tags = @bookmark.tags.all
 	end
 
@@ -73,7 +84,10 @@ class BookmarksController < ApplicationController
 
 	# DELETE => /bookmarks/:id
 	def destroy
-		@bookmark = Bookmark.find(params[:id])
+		@bookmark = Bookmark.find_by_id(params[:id])
+		if @bookmark.nil?
+			redirect_to load_current_user, :notice => "Record Not Found!"
+		end
 		@bookmark.destroy
 		redirect_to user_url(@bookmark.user[:username]), :notice => "Bookmark deleted successfully!"
 	end
@@ -81,6 +95,30 @@ class BookmarksController < ApplicationController
 	# /bookmarks/popular
 	def popular
 		@popular_bookmarks = Bookmark.order("view_count DESC").limit(10)
+	end
+
+	private
+
+	def correct_user
+		redirect_to load_current_user, :notice => "You are not authorize to delete this bookmark!" unless load_current_user?(find_user)
+	end
+
+	def not_authorize_to_delete_or_edit
+		#load_current_user? method is defined in application_controller
+		!load_current_user?(find_user) && (find_user.id != session[:user_id])
+	end
+
+	def find_user
+		bookmark = Bookmark.find_by_id(params[:id])
+		if bookmark.nil? 
+			redirect_to load_current_user, :notice => "Bookmark Not Found!"
+		end
+
+		user = User.find_by_id(bookmark.user_id)
+		if user.nil?
+			redirect_to load_current_user, :notice => "Bookmark Not Found!"
+		end
+		user
 	end
 
 end

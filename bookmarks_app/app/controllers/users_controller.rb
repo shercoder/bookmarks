@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
 	# before_filters goes here
 	before_filter :require_user, :except => [:new, :create]
+	before_filter :correct_user, :except => [:new, :create]
 	
 	# GET => /users
 	# def index
@@ -53,5 +54,11 @@ class UsersController < ApplicationController
 		@user = User.find_by_username(params[:id])
     	@user.destroy
     	redirect_to users_url, :notice => "Deleted successfully!"
+	end
+
+	private
+	def correct_user
+		user = User.find_by_username(params[:id])
+		redirect_to load_current_user, :notice => "You are not authorize to look into other user's profile!" unless load_current_user?(user)
 	end
 end
